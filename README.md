@@ -16,4 +16,4 @@ Xinyan Xu, 2020213183, 200979140, jp2020213183@qmul.ac.uk
 
 Zilong Wang, 2020213299, 200978800, jp2020213299@qmul.ac.uk
 
-## Assigned TA:Yiming Zhou
+## Assigned TA:YiDing Zhao
