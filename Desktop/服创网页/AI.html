@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>西湖论剑活动创意设计</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <script src="./bootstrap/js/bootstrap.bundle.js"></script>
+</head>
+<body
+style="background-image: url(bg2.webp);">
+<style>
+    .reveal {
+        /* position: relative; */
+        transform: translateY(150px) scale(1.2, 1.2);
+        opacity: 0;
+        transition: 1s all ease;
+    }
+    .reveal.active {
+        transform: translateY(0) scale(1, 1);
+        opacity: 1;
+    }
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+</style>
+<!-- <video muted loop autoplay="autoplay" class="d-block w-100">
+  <source src="AI\3.mp4" type="video/mp4">
+</video> -->
+<!-- 灰色的水平导航栏在小型屏幕上变为垂直 -->
+<nav class="navbar navbar-expand-sm bg-light .fixed-top">
+
+  <div class="container-fluid">
+    <!-- 链接 -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">主页</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="AI.html">AI动漫角色生成</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="yyz.html">元宇宙展厅</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="else.html">其他活动策划</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+<!-- 视频 -->
+<!-- 轮播 -->
+
+<div class="container-fluid mt-3" style="text-align: center;background-color: blanchedalmond;">
+  <h3>选择你喜欢的标签特征，来定制自己的西湖论剑论坛导游形象吧
+    AI生成虚拟动漫形象，内置Novelai开源代码技术，预设置模型和部分标签。用户给出自己心目中动漫形象的简单描述，便可据此生成答案。可以连续提出请求哦。</h1>
+</div>
+<div class="container-fluid" style="margin-top: 2rem ;">
+  <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: center;">
+        <video src="AI/1.mp4" controls ></video>
+        <h1 style="color: pink;">我希望能有一个乘风破浪的小姐姐带我进行参观!</h1>
+      </div>
+    </div> 
+    <!-- <div class="col-sm-2"></div> -->
+    <div class="col-sm-12">
+      <div style="text-align: center;">
+        <video src="AI/2.mp4" controls ></video>
+        <h1 style="color: pink;">能看一看他的全身照吗?</h1>
+      </div>
+    </div> 
+    <div class="col-sm-12">
+      <div style="text-align: center;">
+        <video src="AI/3.mp4" controls ></video>
+        <h1 style="color: pink;">我想要一个粉色头发的可爱小姐姐作为我的向导!</h1>
+      </div>
+    </div> 
+    <div class="col-sm-12">
+      <div style="text-align: center;">
+        <video src="AI/4.mp4" controls ></video>
+        <h1 style="color: pink;">快让他带着我去别的地方看一看吧!</h1>
+      </div>
+    </div> 
+  </div>
+</div>
+信息流
+<div class="container p-5 my-5 border" style="background-color: bisque;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12" style="text-align: center;">
+        <h1>AI动漫角色生成(因为项目在本地运行,暂时无法配置到网页中,本页面仅展示形象生成视频)</h3>
+      </div>  
+    <div class="col-sm-12" style="text-align: center;">
+      <h3>22年2月，AI绘画程序Disco Diffusion被推出，能生成一些富有氛围感的草图。随后的几个月里，AI绘画快速发展，如今最新的Stable Diffusion技术生成的图片已经让人难辨真假。作为一项日益成熟的AI技术，其在未来必定会深刻影响我们的生活，同时因为其高度的仿真性，也有可能成为未来网络安全的新威胁。因此在西湖论剑网络安全大会中引入这项技术，既能让参会者感受到AI绘画的魅力，也能让参会者警惕未来网络安全可能出现的新威胁。
+        本创意意在让参与者通过自己动手，填写关键词，生成参与者专属的AI动漫管家形象，在后续的会议过程中，引领参会者对西湖论剑网络大会进行参观。</h3>
+    </div>  
+    </div>
+  </div>
+</div>
+
+<script lang="javascript">
+  function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+              reveals[i].classList.add("active");
+          } else {
+              reveals[i].classList.remove("active");
+          }
+      }
+  }
+
+  window.addEventListener("scroll", reveal);
+
+</script>
+</body>
+</html>
