@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to CSC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-Lb8goyl2cXnBvCqIZsW8weDrKK+TnTLeivvYKjRtu8bUfD6U9g6vDrrJUOUjtp+mSWFwqlMzIv2vyPYluULaw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-2rxHSlq3aV8L9lB1sI2NlW8OvqldHrERG/ToTgTjWvfRvDAs1pjXz6Ufpy6pW8GKj+eI/yJePguw0+0W8cYm2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom CSS -->
+  <script src="./bootstrap/js/bootstrap.bundle.js"></script> 
+  <style>
+    /* Style for the active breadcrumb item */
+    .breadcrumb .active {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    /* Style for the breadcrumb separator */
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: '>';
+      color: #6c757d;
+    }
+    /* Animation for the breadcrumb separator */
+    .breadcrumb-item + .breadcrumb-item::before {
+      opacity: 0;
+      transform: translateX(10px);
+      transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    }
+    .breadcrumb-item.active + .breadcrumb-item::before,
+    .breadcrumb-item:hover + .breadcrumb-item::before {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+
+<body>
+  
+  <!--navbar-->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Category 1</a></li>
+        <li class="breadcrumb-item"><a href="#">Category 2</a></li>
+        <li class="breadcrumb-item">Current Page</li>
+      </ol>
+    </nav>
+<!--navbar-->
+
+<!-- 轮播 -->
+<video muted loop autoplay="autoplay" class="d-block w-100">
+  <source src="resources\changsha.mp4" type="video/mp4">
+</video>
+<!-- 三个摁钮 -->
+<section class="events" id="events">
+  <div class="container">
+  <div class="title">
+      <h1 class="dark">Upcoming Events</h1>
+      <div class="line"></div>
+  </div>
+  <div class="row">
+      <article class="card col">
+          <img class="card-img" src="./resources/Vistors.jpg">
+          <h4 class="dark">Everest camp trek</h4>
+          <p class="font-color">Everest base camp trek is without a doubt, one of the most renowned travel destinations in the world.</p>
+          <a href="#" class="ctn">All Details</a>
+      </article>
+      <article class="card col">
+          <img src="./resources/Professionals.jpg">
+          <h4 class="dark">Walking holidays</h4>
+          <p class="font-color">Join small guided group walks, enjoy a challenging trek, or a luxury private guided walk which can be made especially for you.</p>
+          <a href="#" class="ctn">All Details</a>
+      </article>
+      <article class="card col">
+          <img src="./resources/Investors.jpg">
+          <h4 class="dark">Andaman Beaches</h4>
+          <p class="font-color">Diving in Andaman Beaches is exceptional. The costal belt surroundings is one of the richest coral reef ecosystems in the world.</p>
+          <a href="#" class="ctn">All Details</a>
+      </article>
+  </div>
+</div>
+</section>
+<!-- 信息流 -->
+
+<!-- 新版 -->
+<div class="container p-5 my-5 border reveal" >
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- 左边盒子 -->
+      <div class="col-sm-5">
+        <!-- <img src="resources/wuhan.jpg" alt="Wuhan" class="d-block" style="width:100%"> -->
+        <div class="row">
+          <div class="col-sm-9">
+            <img src="resources/wuhan.jpg" alt="Wuhan" class="d-block" style="width:100%; z-index: 1;">
+          </div>
+          <div class="col-sm-10">
+                        <img src="resources/beijing.jpg" alt="Wuhan" class="d-block" style="width:30%;float: right;margin-top: -10%;z-index: 999;">
+                  <!-- <div style="background-color: blue;color: aliceblue;width: auto;text-align: right;float: right;margin-top: -2%;">Cultrue & History</div>                      </div> -->
+          <!-- <div class="col-sm-5" style="margin-top: 20%;"> -->
+
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6" style="float: left;">
+      description
+    </div>
+  </div>
+</div>
+<script lang="javascript">
+  function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+              reveals[i].classList.add("active");
+          } else {
+              reveals[i].classList.remove("active");
+          }
+      }
+  }
+
+  window.addEventListener("scroll", reveal);
+
+</script>
+</body>
+</html>
