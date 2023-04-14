@@ -11159,9 +11159,19 @@ body {
   }
 }
 
+.detail-section{
+  padding: 10rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 80%, rgba(0, 0, 0, 0.6) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+
 .signup-section {
   padding: 10rem 0;
-  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.5) 50%,rgba(0, 0, 0, 1) 100%), url("../img/connect.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0.8) 100%), url("../img/connect.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;

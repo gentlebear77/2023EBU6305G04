@@ -21,7 +21,19 @@
             .zoom-on-hover:hover {
               transform: scale(1.05);
             }
-          </style>
+        
+            .reveal {
+            /* position: relative; */
+            transform: translateY(150px) scale(1.2, 1.2);
+            opacity: 0;
+            transition: 1s all ease;
+            }
+    
+            .reveal.active {
+                transform: translateY(0) scale(1, 1);
+                opacity: 1;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -121,6 +133,25 @@
                 </div>
             </div>
         </section>
+        <section class="detail-section">
+            <div class="container px-5 my-5">
+              <div class="row gx-5 align-items-center">
+                <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="img/climate.jpg" alt="..."></div>
+                <div class="col-lg-6">
+                  <h2 class="fw-bolder">Climate</h2>
+                  <p class="lead fw-normal text-muted mb-0">Changsha, the capital of Hunan province in China, enjoys a humid subtropical climate with four distinct seasons. The mild winters and comfortable temperatures in spring and autumn make these seasons ideal for outdoor activities and sightseeing. Despite the hot and humid summers, the abundant rainfall contributes to the city's lush greenery and scenic landscapes.
+                  </p>
+                </div>
+                <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0"
+                    src="img/economy.jpg" alt="..."></div>
+                <div class="col-lg-6">
+                  <h2 class="fw-bolder">Economy</h2>
+                  <p class="lead fw-normal text-muted mb-0">Changsha, a thriving economic hub in China's Hunan province, boasts a diverse and robust economy. Key advantages include its well-developed infrastructure, strategic location in the Yangtze River Delta region, and a strong focus on high-tech industries, education, and research. These factors contribute to the city's rapid economic growth and its attractiveness to both domestic and international investors.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        
         <!-- Signup-->
         <section class="signup-section" id="signup">
             <div class="container px-4 px-lg-5">
