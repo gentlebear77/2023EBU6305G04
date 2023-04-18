@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor page</title-->
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="resources/css/bootstrap.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/image/CSCicon.png" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Grayscale - Start Bootstrap Theme</title>
+    <!--<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"><!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script><!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script><!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    
+
+    <style>
+    #map {
+        height: 550px;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .zoom-button {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 3px;
+        margin: 5px;
+        }
+
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    .hover-image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hover-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .hover-image-container .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .hover-image-container:hover .overlay {
+        opacity: 1;
+    }
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+    }
+
+    .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .image-container:hover img {
+        transform: scale(1.1);
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .bg-image {
+        background-image: url('resources/image/life.png');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        height: 90vh;
+    }
+
+    .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .content-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 2rem;
+        z-index: 1;
+    }
+
+    /* .breadcrumb {
+    background-color: transparent;
+    padding: 0px;
+    display: inline-block;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        position: relative;
+    } */
+
+    .breadcrumb {
+        background-color: transparent;
+        padding-top: 28px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color:gray;
+        font-weight: bold;
+    }
+
+    .breadcrumb .divider {
+        color: grey;
+        padding: 0 5px;
+    }
+
+
+    .breadcrumb a.current {
+        color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+    }
+
+    .mastheads {
+    position: relative;
+    width: 100%;
+    float: right;
+    height: auto;
+    min-height: 35rem;
+    padding: 15rem 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
+    /* background: url("../assets/img/bg.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .mastheads h1, .mastheads .h1 {
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    }
+
+    .mastheadsss {
+    position: relative;
+    width: 100%;
+    float: right;
+    height: 82%;
+    min-height: 35rem;
+    padding: 15rem 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
+    background: url("resources/image/pro1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .mastheadsss h1, .mastheadsss .h1 {
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    }
+    .signup-section1 {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("resources/image/visitor2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .signup-section1 .form-signup input {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 2rem;
+    height: auto;
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    border: 0;
+    }
+
+    .image-container1 {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: -1.5rem;
+        position: relative;
+    }
+
+    .image-wrapper {
+        
+        gap: -10rem;
+        transition: transform 0.3s ease;
+        position: relative;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+    }
+
+    .image-wrapper:hover {
+        transform: scale(1.1);
+        z-index: 1;
+    }
+
+    .image-wrapper.big {
+        flex-basis: 22%;
+        z-index: 2
+    }
+
+    .image-wrapper.small {
+        flex-basis: 19%;
+    }
+
+    .overlap1 {
+        margin-left: -15px;
+    }
+    .overlap2 {
+        margin-right: -15px;
+    }
+    </style>
+
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=bcbf9d1c5d8d1da4e904b8ca5181816d"></script>
+    <script>
+    function initMap() {
+        const map = new AMap.Map('map', {
+        zoom: 12,
+        center: [112.938814, 28.228209],
+        //zoomEnable:false,
+        // resizeEnable: true,
+        scrollWheel: false,
+        });
+
+        // 添加缩放控件
+        map.plugin([
+        'AMap.ToolBar',], function(){
+            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+            map.addControl(new AMap.ToolBar({
+                // 简易缩放模式，默认为 false
+                liteStyle: true
+            }));
+        });
+    
+        const attractions = [
+        {
+          position: [112.986378, 28.189681],
+          title: 'Changsha Talent Service Centre',
+          info: 'Changsha Talent Service Centre',
+          image:'resources/image/Talent service center.jpg',
+        },
+        {
+          position: [112.950036, 28.220769],
+          title: 'Zhonglian Technology Park',
+          info: 'Zhonglian Technology Park',
+          image: 'resources/image/Zhonglian.jpg',
+        },
+        {
+          position: [112.855401, 28.235388],
+          title: 'Lugu Technology Innovation and Entrepreneurship Park',
+          info: 'Lugu Technology Innovation and Entrepreneurship Park',
+          image:'resources/image/Lugu.jpg',
+        },
+        {
+          position: [112.984615, 28.193409],
+          title: 'Changsha World Trade Center',
+          info: 'Changsha World Trade Center',
+          image:'resources/image/World Trade Center.jpg',
+        },
+        {
+          position: [112.978385, 28.192773],
+          title: 'IFS',
+          info: 'IFS',
+          image:'resources/image/IFS.jpg',
+        },
+        {
+          position: [112.893315, 28.216031],
+          title: 'Changsha National High-tech Industrial Development Zone',
+          info: 'Changsha National High-tech Industrial Development Zone',
+          image:'resources/image/High-tech.jpg',
+        },
+      ];
+
+        attractions.forEach((attraction) => {
+            const marker = new AMap.Marker({
+                position: attraction.position,
+                title: attraction.title,
+                map: map,
+            });
+     
+            const infoWindow = new AMap.InfoWindow({
+                content: `<h3><span style="font-size:13px">${attraction.title}</span></h3>
+                <img src="${attraction.image}" style="width: 200px; height: 200px; text-align:center;" alt="${attraction.title}"> <!-- 添加图片元素 -->
+                <br>
+                <<a href="${attraction.link}" target="_blank" id="learnMore">Learn more</a> `,
+                offset: new AMap.Pixel(0, -30),
+                //isCustom: true,
+            });
+
+            /* marker.on("click", () => {
+                infoWindow.open(map, marker.getPosition());
+            });
+
+            */
+            /* marker.on('click', function() {
+                infoWindow.open(map, marker.getPosition());
+                // 为 learnMore 元素添加监听器
+                infoWindow.on('open', function() {
+                    addLearnMoreListener();
+                });
+            });
+
+            map.on('click', function() {
+                infoWindow.close();
+            });
+
+            // 添加 Learn more 点击事件监听器
+            function addLearnMoreListener() {
+                var learnMoreElement = document.getElementById('learnMore');
+                if (learnMoreElement) {
+                    learnMoreElement.addEventListener('click', function(e) {
+                        e.preventDefault(); // 阻止链接的默认行为
+                        window.open('your_local_html_file.html', '_blank');
+                    });
+                }
+            }*/
+        
+            function createInfoWindowContent() {
+                var content = document.createElement('div');
+                content.innerHTML = infoWindowContent;
+                content.style.cursor = 'defaul';
+                content.style.width='auto';
+                content.style.height = 'auto';
+                return content;
+            }
+
+            marker.on('click', function() {
+                infoWindow.open(map, marker.getPosition());
+            });
+
+            map.on('click', function() {
+                infoWindow.close();
+            })
+        });
+    }
+
+    $(function () {
+        $(function(){
+            $(window).scroll(function(){
+                if($(window).scrollTop() > 100){
+                    $("#gotop").fadeIn(1000);//一秒渐入动画
+                }else{
+                    $("#gotop").fadeOut(1000);//一秒渐隐动画
+                }
+            });
+
+            $("#gotop").click(function(){
+                $('body,html').animate({scrollTop:0},1000);
+            });
+        });
+    });
+
+    </script>
+    <!-- 引入Bootstrap 5 JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x61Y/CEjjzD+2/2us" crossorigin="anonymous"></script>-->
+</head>
+
+<body onload="initMap()" id="page-top">
+    <!-- jQuery -->
+    <script src="resources/js/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="resources/js/bootstrap.bundle.js"></script>
+    
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        
+            <div class="breadcrumb" style="display:flex;vertical-align: middle;">
+                <div class="nav-item">
+                <a href="#">&nbsp Home</a>
+                <span class="divider">></span>
+                <a class="current" href="#">&nbsp Professional</a>
+                <!-- <span class="divider">></span> -->
+                <!-- <a href="#">&nbsp Learn More</a> -->
+                </div>
+           
+        </div>
+        
+        <a class="navbar-brand" href="#page-top" style="padding-left:20%;">Welcome to CSC</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-right:5% ;">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#mappage" style="font-weight: bold;">Map</a></li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-expanded="true" style="font-weight: bold;">About</a>
+                    <ul class="dropdown-menu text-wrap" style="font-size:12px;">
+                        <li><a class="dropdown-item" href="#AdvantageousIndustries" style="font-weight: bold;">Advantageous Industries</a></li>
+                        <li><a class="dropdown-item" href="#LivingStandards" style="font-weight: bold;">Living Standards</a></li>
+                        <li><a class="dropdown-item" href="#policy" style="font-weight: bold;">Talent Policy</a></li>
+                        
+                        <!-- <li><a class="dropdown-item" href="#accomodation" style="font-weight: bold;">Accomodation</a></li> -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        
+    </div>
+    </nav>
+
+    <!-- Masthead-->
+    <!-- <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="container">
+            
+            <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 100px;font-weight: bold;background-color: rgb(205, 255, 252);">Welcome Visitor<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
+            <br>
+            <p style="font-size: 18px;color:lightcyan;">Learn about attractions, transportation, food, <br>and specialties in Changsha.</p>
+            </div>
+        </div>
+    </header> -->
+
+    <div style="background-color: black;">
+    <div class="row">
+        <div class="col-6">
+            <header class="mastheads">
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                    <div class="container">
+                    <!--title-->
+                    <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 69px;font-weight: bold;background-color: rgb(175, 230, 244);">Welcome Professional<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
+                    <br>
+                    <p style="font-size: 18px;color:rgb(155, 212, 228);">Learn about attractions, transportation, food, <br>and specialties in Changsha.</p>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="col-6">
+            <header class="mastheadsss">
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                </div>
+            </header>
+        </div>
+    </div>
+    </div>
+
+    <section class="about-section text-center" id="mappage" style="padding-top: 0.1%;padding-bottom: 10%;">
+        <!--map-->
+        <div id="map" class="mt-3"></div>
+        <br>
+        <!-- <h2 style="color:whitesmoke;padding-left: 50px;text-align: left;font-family:STHeiti;">Visitor Map & Location Description</h2> -->       
+    </section>
+
+    <div class="container" id="AdvantageousIndustries">
+        <br><br><br>
+        <!--pictures and captions(Advantageous Industries)-->
+        <div style="text-align: center;">
+            <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Advantageous Industries</h1>
+            <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+        </div>
+        <br><br>
+
+        <div class="container px-4 px-lg-5">    
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="card">
+                        <img src="resources/image/finance.png" class="card-img-top" alt="finance">
+                        <div class="card-body">
+                            <h5 class="card-title">Finance</h5>
+                            <p class="card-text">这是一些示例文本。您可以在这里添加有关此卡片的详细信息。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <img src="resources/image/technology.png" class="card-img-top" alt="technology">
+                        <div class="card-body">
+                            <h5 class="card-title">Technology</h5>
+                            <p class="card-text">这是一些示例文本。您可以在这里添加有关此卡片的详细信息。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
+                    <div class="card">
+                        <img src="resources/image/Heavy industry.png" class="card-img-top" alt="Manufacturing industry">
+                        <div class="card-body">
+                            <h5 class="card-title">Manufacturing Industry</h5>
+                            <p class="card-text">这是一些示例文本。您可以在这里添加有关此卡片的详细信息。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+        <div class="container px-4 px-lg-5">    
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="card">
+                        <img src="resources/image/travel.png" class="card-img-top" alt="travel">
+                        <div class="card-body">
+                            <h5 class="card-title">Travel</h5>
+                            <p class="card-text">这是一些示例文本。您可以在这里添加有关此卡片的详细信息。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <img src="resources/image/catering.png" class="card-img-top" alt="catering">
+                        <div class="card-body">
+                            <h5 class="card-title">Catering</h5>
+                            <p class="card-text">这是一些示例文本。您可以在这里添加有关此卡片的详细信息。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
+                    <div class="card">
+                        <img src="resources/image/cscentertainment.jpg" class="card-img-top" alt="entertainment">
+                        <div class="card-body">
+                            <h5 class="card-title">Entertainment</h5>
+                            <p class="card-text">这是一些示例文本。您可以在这里添加有关此卡片的详细信息。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        </div>
+    </div>
+     
+    <div id="LivingStandards" style="padding-top: 2%;padding-bottom: 2%;">
+    <!--pictures and captions(Living Standards)-->
+    <div class="bg-image">
+        <div class="bg-overlay"></div>
+        <div class="content-container">
+            <h1 style="font-size: 35px; font-weight: bold; font-family: STHeiti; color: aliceblue;">Living Standards</h1>
+            <br>
+            <p style="color: aliceblue;">这里是描述文本。您可以根据需要编辑这些内容。<br>这里是描述文本。您可以根据需要编辑这些内容。<br>这里是描述文本。您可以根据需要编辑这些内容。<br>这里是描述文本。您可以根据需要编辑这些内容。</p >
+        </div>
+    </div>
+    <br><br><br><br>
+    </div>
+
+    <section id="policy">
+        <!--pictures and captions(Talent Policy)-->
+        <div style="text-align: center;">
+            <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Talent Policy</h1>
+            <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+        </div>
+        <br><br>
+    <div class="container mt-5">
+        <div class="image-container1">
+            <div class="image-wrapper small overlap2">
+                <img src="resources/image/food1.png" alt="图片1">
+            </div>
+            <div class="image-wrapper small overlap2">
+                <img src="resources/image/food1.png" alt="图片2">
+            </div>
+            <div class="image-wrapper big">
+                <img src="resources/image/food1.png" alt="图片3">
+            </div>
+            <div class="image-wrapper small overlap1">
+                <img src="resources/image/food1.png" alt="图片4">
+            </div>
+            <div class="image-wrapper small overlap1">
+                <img src="resources/image/food1.png" alt="图片5">
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        <script>AOS.init();</script>
+       
+
+    <!-- Signup-->
+    <section class="signup-section1" id="signup">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-10 col-lg-8 mx-auto text-center">
+                    <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                    <h2 class="text-white mb-5">Looking forward to your visit</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>
+
