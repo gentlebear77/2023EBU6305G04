@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor page</title-->
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="resources/css/bootstrap.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/image/CSCicon.png" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Grayscale - Start Bootstrap Theme</title>
+    <!--<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script><!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script><!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+
+    <style>
+    #map {
+        height: 550px;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .zoom-button {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 3px;
+        margin: 5px;
+        }
+
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    .hover-image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hover-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .hover-image-container .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .hover-image-container:hover .overlay {
+        opacity: 1;
+    }
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+    }
+
+    .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .image-container:hover img {
+        transform: scale(1.1);
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .bg-image {
+        background-image: url('resources/image/policy.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        height: 90vh;
+        display: grid;
+       
+    }
+
+    .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .content-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 2rem;
+        z-index: 1;
+    }
+
+
+
+    .breadcrumb {
+        background-color: transparent;
+        padding-top: 28px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color:gray;
+        font-weight: bold;
+    }
+
+    .breadcrumb .divider {
+        color: grey;
+        padding: 0 5px;
+    }
+
+
+    .breadcrumb a.current {
+        color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+    }
+
+    .mastheads {
+    position: relative;
+    width: 100%;
+    float: right;
+    height: auto;
+    min-height: 35rem;
+    padding: 15rem 0;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .mastheads h1, .mastheads .h1 {
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    }
+
+    .mastheadsss {
+    position: relative;
+    width: 100%;
+    float: right;
+    height: 80%;
+    min-height: 35rem;
+    padding: 15rem 0;
+    
+    background: url("resources/image/investor.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .mastheadsss h1, .mastheadsss .h1 {
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    }
+
+    .signup-section1 {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("resources/image/investor1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .signup-section1 .form-signup input {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 1.25rem 2rem;
+    height: auto;
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    border: 0;
+    }
+
+    .text-container {
+        padding: 2%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+    }
+
+      /* Responsive design styles */
+    @media only screen and (max-width: 1200px) {
+        h1, p {
+            font-size: 90%;
+        }
+    }
+    @media only screen and (max-width: 992px) {
+        h1, p {
+            font-size: 80%;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        h1, p {
+            font-size: 70%;
+        }
+    }
+    @media only screen and (max-width: 576px) {
+        h1, p {
+            font-size: 60%;
+        }
+    }
+    </style>
+
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=bcbf9d1c5d8d1da4e904b8ca5181816d"></script>
+    <script>
+    function initMap() {
+        const map = new AMap.Map('map', {
+        zoom: 12,
+        center: [112.938814, 28.228209],
+        scrollWheel: false,
+        });
+
+        // 添加缩放控件
+        map.plugin([
+        'AMap.ToolBar',], function(){
+            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+            map.addControl(new AMap.ToolBar({
+                // 简易缩放模式，默认为 false
+                liteStyle: true
+            }));
+        });
+    
+        const attractions = [
+        {
+          position: [112.964108,28.234831],
+          title: 'Changsha Investment Holding Co.',
+          info: 'Financial development, capital operation, and industry guidance platform of Changsha',
+          image:'resources/image/add1.webp',
+          link:'fourimage.html',
+        },
+        {
+          position: [112.813143,28.189849],
+          title: 'Zoomlion Smart Industrial City',
+          info: 'Environmentally friendly and ecological high-end equipment intelligent manufacturing base and artificial intelligence research application base, one of the major leading industrial projects in 2023',
+          image: 'resources/image/add2.jpg',
+          link:'fourimage.html',
+        },
+        {
+          position: [113.121431,28.202303],
+          title: 'Changsha Artificial Intelligence Innovation Centre',
+          info: 'A technology innovation platform integrating computing services, industry gathering, application innovation incubation and talent training, one of the major technology innovation projects in 2023。',
+          image:'resources/image/add3.jpeg',
+          link:'fourimage.html',
+        },
+        {
+          position: [113.23767,28.174803],
+          title: 'Changsha Huanghua International Airport T3 (under construction)',
+          info: 'Airport expansion project, one of the major infrastructure projects in 2023',
+          image:'resources/image/add4.png',
+          link:'fourimage.html',
+        },
+        {
+          position: [112.938473,28.227538],
+          title: 'Changsha Development and Reform Commission',
+          info: 'Changsha Development and Reform Commission',
+          image:'resources/image/add5.webp',
+          link:'fourimage.html',
+        },
+        {
+          position: [113.08702,28.239405],
+          title: 'Changsha Economic and Technological Development Zone',
+          info: 'Changsha Economic and Technological Development Zone',
+          image:'resources/image/add6.webp',
+          link:'fourimage.html',
+        },
+      ];
+        
+
+        attractions.forEach((attraction) => {
+            const marker = new AMap.Marker({
+                position: attraction.position,
+                title: attraction.title,
+                map: map,
+            });
+     
+            const infoWindow = new AMap.InfoWindow({
+                content: `<h3><span style="font-size:13px">${attraction.title}</span></h3>
+                <img src="${attraction.image}" style="width: 200px; height: 200px; text-align:center;" alt="${attraction.title}"> <!-- 添加图片元素 -->
+                <br>
+                <<a href="${attraction.link}" target="_blank" id="learnMore">Learn more</a> `,
+                offset: new AMap.Pixel(0, -30),
+                //isCustom: true,
+            });
+
+           
+        
+            function createInfoWindowContent() {
+                var content = document.createElement('div');
+                content.innerHTML = infoWindowContent;
+                content.style.cursor = 'defaul';
+                content.style.width='auto';
+                content.style.height = 'auto';
+                return content;
+            }
+
+            marker.on('click', function() {
+                infoWindow.open(map, marker.getPosition());
+            });
+
+            map.on('click', function() {
+                infoWindow.close();
+            })
+        });
+    }
+
+    $(function () {
+        $(function(){
+            $(window).scroll(function(){
+                if($(window).scrollTop() > 100){
+                    $("#gotop").fadeIn(1000);//一秒渐入动画
+                }else{
+                    $("#gotop").fadeOut(1000);//一秒渐隐动画
+                }
+            });
+
+            $("#gotop").click(function(){
+                $('body,html').animate({scrollTop:0},1000);
+            });
+        });
+    });
+
+    </script>
+    <!-- 引入Bootstrap 5 JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x61Y/CEjjzD+2/2us" crossorigin="anonymous"></script>-->
+</head>
+
+<body onload="initMap()" id="page-top">
+    <!-- jQuery -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    
+    
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        
+            <div class="breadcrumb" style="display:flex;vertical-align: middle;">
+                <div class="nav-item">
+                <a href="Home.html">&nbsp Welcome to CSC</a>
+                <span class="divider">></span>
+                <a class="current" href="#page-top">&nbsp Investor</a>
+                </div>
+           
+        </div>
+        
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-right:5% ;">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#mappage" style="font-weight: bold;">Map</a></li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-expanded="true" style="font-weight: bold;">About</a>
+                    <ul class="dropdown-menu text-wrap" style="font-size:12px;">
+                        <li><a class="dropdown-item" href="#developmentplan" style="font-weight: bold;">Urban Development Plan</a></li>
+                        <li><a class="dropdown-item" href="#policy" style="font-weight: bold;">Investment Policy</a></li>
+                        <li><a class="dropdown-item" href="#gdp" style="font-weight: bold;">GDP per Capita</a></li>
+                       
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        
+    </div>
+    </nav>
+
+   
+
+    <div style="background-color: black;">
+    <div class="row">
+        <div class="col-6">
+            <header class="mastheads">
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                    <div class="container">
+                    <!--title-->
+                    <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 90px;font-weight: bold;background-color: rgb(175, 230, 244);">Welcome Investor<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
+                    <br>
+                    <p style="font-size: 18px;color:rgb(155, 212, 228);">Learn about Changsha's investment environment and policies. Hope this will help you understand the unique investment opportunities in the city.</p>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="col-6">
+            <header class="mastheadsss">
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                </div>
+            </header>
+        </div>
+    </div>
+    </div>
+
+
+    
+
+    <section class="about-section text-center" id="mappage" style="padding-top: 0.1%;padding-bottom: 10%;">
+        <!--map-->
+        <div id="map" class="mt-3"></div>
+        <br>
+        <!-- <h2 style="color:whitesmoke;padding-left: 50px;text-align: left;font-family:STHeiti;">Visitor Map & Location Description</h2> -->       
+    </section>
+
+
+ <br><br><br><br><br>
+  <!--pictures and captions(Accommodation)-->
+  <div class="container mt-5" id="developmentplan" >
+    <div style="text-align: center;">
+    <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Urban Development Plan</h1>
+    <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+    </div>
+    <br><br>
+
+</div>
+</div>   
+<br>
+<section>
+<div class="container px-4 px-lg-5">    
+    <div class="row">
+        <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+            <div class="card">
+                <img src="resources/image/card1.jpg" class="card-img-top" alt="图片1">
+                <div class="card-body">
+                    <h5 class="card-title">Finance</h5>
+                    <p class="card-text">Changsha's financial market is becoming increasingly active and the development of the real economy continues to strengthen, especially in areas such as internet finance and financial technology, which have increased market potential.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+                <img src="resources/image/card2.jpg" class="card-img-top" alt="图片2">
+                <div class="card-body">
+                    <h5 class="card-title">Culture & Tourism</h5>
+                    <p class="card-text">The development of Changsha's tourism industry has increased significantly in recent years, with the city's beautification, rich tourism projects and increased popularity all driving the development of Changsha's cultural and tourism industry.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
+            <div class="card">
+                <img src="resources/image/card3.jpg" class="card-img-top" alt="图片3">
+                <div class="card-body">
+                    <h5 class="card-title">Technology</h5>
+                    <p class="card-text">Changsha is an important centre for science and technology innovation in the country. Technology companies in Changsha's technology city have a great advantage in terms of talent and technology, and are very promising investment targets.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+<br><br>
+<div class="container px-4 px-lg-5">    
+  <div class="row">
+      <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+          <div class="card">
+              <img src="resources/image/card4.jpg" class="card-img-top" alt="图片1">
+              <div class="card-body">
+                  <h5 class="card-title">Entertainment</h5>
+                  <p class="card-text">Changsha is an important centre for science and technology innovation in the country. Technology companies in Changsha's technology city have a great advantage in terms of talent and technology, and are very promising investment targets.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="card">
+              <img src="resources/image/card5.jpg" class="card-img-top" alt="图片2">
+              <div class="card-body">
+                  <h5 class="card-title">Manufacturing</h5>
+                  <p class="card-text">The manufacturing industry in Changsha has always been a pillar industry of Changsha's economy. In particular, it has strong development potential and competitiveness in areas such as automobile and parts production and new materials manufacturing.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
+          <div class="card">
+              <img src="resources/image/card6.jpg" class="card-img-top" alt="图片3">
+              <div class="card-body">
+                  <h5 class="card-title">Food & Beverage</h5>
+                  <p class="card-text">Changsha's catering industry is relatively well developed. In recent years, with the acceleration of urbanisation and the development of tourism, the catering industry has also seen new development trends such as an increase in demand for high-end catering. </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script>AOS.init();</script>
+<br><br><br>
+ 
+  <div id="policy" style="padding-top: 2%;padding-bottom: 2%;">
+    <!--pictures and captions(Entertainment & Shopping)-->
+    <div class="bg-image">
+      <div class="bg-overlay"></div>
+        <div class="col-md-8">
+          <div class="content-container">
+            <h1 style="font-size: 30px; font-weight: bold; font-family: STHeiti; color: aliceblue;"><br>Favorable policies for investors</h1>
+            <br>
+                <p style="color: aliceblue; font-weight: bold;">1. Optimising the business environment:</p> <p style="color: lightslategrey;"> Optimising the business environment, simplifying the administrative approval process, reducing investment costs and improving efficiency.</p >
+                
+                <p style="color: aliceblue; font-weight: bold;">2. Industrial support policies:</p> <p style="color: lightslategrey;">Implement industrial support policy for key areas and provide various preferential measures.</p >
+                
+                <p style="color: aliceblue; font-weight: bold;">3. Innovation and entrepreneurship support policy:</p> <p style="color: lightslategrey;">Provide support for technological innovation and entrepreneurial projects to encourage innovative and entrepreneurial activities.</p >
+                
+                <p style="color: aliceblue; font-weight: bold;">4. Financial support policy:</p> <p style="color: lightslategrey;">Support the development of quality projects and SMEs through financial policy guidance and loan guarantees to reduce financing costs.</p >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>   
+    <br><br><br>
+  
+
+
+    <!-- chart -->
+  <div class="container-fluid" id="gdp">
+        <div class="col-md" style="text-align: center;">
+            <h2 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Gross Domestic Product in Changsha</h2>
+            <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+            <br><br>
+          </div>
+        <div class="col-md">
+            <div id="gdp-chart"></div>
+        </div>
+        <div class="col-md">
+            <p style="font-size: 18px;color:black;">
+                &nbsp&nbsp Changsha City is the capital of Hunan Province and has a relatively fast economic development rate. During the period of 2017-2022, Changsha's GDP continued to grow with relatively balanced development of various industries. 2022 Changsha's GDP is expected to grow by 4.8%, ranking among the top trillion cities in China; the value added of large-scale industries grew by 8.5%, ranking first in central China and among the top in the country; local general public budget revenue exceeded 120 billion RMB, showing a good trend of steady progress in economic development.
+            </p>
+        </div>
+  </div>
+
+<script>
+    const data = [{
+            x: [2017, 2018, 2019, 2020, 2021, 2022],
+            y: [10535.51, 11003.41, 11574.22, 12142.52, 13270.7, 13966.11], // 在这里插入全国人均GDP数据
+            mode: 'lines+markers',
+            name: 'Changsha Gross Domestic Product (billion)',
+            hovertemplate: '%{y:,.0f}<extra></extra>',
+            line: {
+                color: 'rgb(255,120,1)'
+            }
+        },
+        {
+            x: [2017, 2018, 2019, 2020, 2021, 2022],
+            y: [379.45, 318.73, 359.69, 423.46, 425.56, 451.3], // 在这里插入湖南省全省人均GDP数据
+            mode: 'lines+markers',
+            name: 'Gross primary sector (billion)',
+            hovertemplate: '%{y:,.0f}<extra></extra>',
+            line: {
+                color: 'rgb(100,120,10)'
+            }
+        },
+        {
+            x: [2017, 2018, 2019, 2020, 2021, 2022],
+            y: [4998.26, 2660.19, 4439.32, 4739.27, 5251.3, 5589.58], // 在这里插入长沙市人均GDP数据
+            mode: 'lines+markers',
+            name: 'Gross secondary sector (billion)',
+            hovertemplate: '%{y:,.0f}<extra></extra>',
+            line: {
+                color: 'rgb(10,0,100)'
+            }
+        },
+
+        {
+            x: [2017, 2018, 2019, 2020, 2021, 2022],
+            y: [5157.8, 6024.49, 6775.21, 6979.79, 7593.85, 7925.24], // 在这里插入长沙市人均GDP数据
+            mode: 'lines+markers',
+            name: 'Gross third sector (billion)',
+            hovertemplate: '%{y:,.0f}<extra></extra>',
+            line: {
+                color: 'rgb(100,150,100)'
+            }
+        }
+    ];
+
+    const layout = {
+        title: '2017-2023 Changsha Gross Domestic Product',
+        xaxis: {
+            title: 'Year'
+        },
+        yaxis: {
+            title: 'Gross Domestic Product'
+        }
+        
+    };
+
+    Plotly.newPlot('gdp-chart', data, layout, {responsive: true});
+</script>
+
+<br><br><br><br>
+       
+    <!-- </div> -->
+
+    <!-- Signup-->
+    <section class="signup-section1" id="signup">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-10 col-lg-8 mx-auto text-center">
+                    <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                    <h2 class="text-white mb-5">Looking forward to your investment</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>

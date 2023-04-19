@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Grayscale - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .zoom-on-hover {
+              transition: transform 0.3s ease;
+            }
+            .zoom-on-hover:hover {
+              transform: scale(1.05);
+            }
+        
+            .reveal {
+            /* position: relative; */
+            transform: translateY(150px) scale(1.2, 1.2);
+            opacity: 0;
+            transition: 1s all ease;
+            }
+    
+            .reveal.active {
+                transform: translateY(0) scale(1, 1);
+                opacity: 1;
+            }
+            .breadcrumb {
+                background-color: transparent;
+                padding-top: 28px;
+                display: inline-block;
+                margin-left: 10px;
+            }
+
+            .breadcrumb a {
+                text-decoration: none;
+                color:gray;
+            }
+
+            .breadcrumb .divider {
+                color: grey;
+                padding: 0 5px;
+            }
+
+
+            .breadcrumb a.current {
+                color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top" style="font-weight: bold; color: gray;">Welcome to CSC</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about" style="font-weight: bold;">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects" style="font-weight: bold;">Details</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup" style="font-weight: bold;">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0 text-uppercase">Changsha</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">A very gooooood city</h2>
+                        <a class="btn btn-primary" href="#about">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="about-section text-center" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="Visit.html">
+                            <img src="img/Vistors.jpg" alt="visitor" class="d-block zoom-on-hover" style="width:100%">
+                        </a>
+                        <h2 class="text-white mb-4 mt-4">Vistors</h2>
+                        <p class="text-white-50">Welcome to Changsha, a city of culture, cuisine, and natural beauty. Discover ancient landmarks and modern attractions, taste delicious food, and immerse yourself in local traditions. Enjoy your stay in Changsha!</p>
+                        <a href="Visit.html" class="ctn">All Details</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="Professional.html">
+                        <img src="img/subway.jpg" alt="professionals" class="d-block zoom-on-hover" style="width:100%">
+                        </a>
+                        <h2 class="text-white mb-4 mt-4">Professionals</h2>
+                        <p class="text-white-50">Changsha offers exciting opportunities for professionals. With a diverse economy and supportive business environment, this city is perfect for expanding your career. Join us in Changsha and unlock your potential.</p>
+                        <a href="Professional.html" class="ctn">All Details</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="Investors.html">
+                        <img src="img/Investors.jpg" alt="investors" class="d-block zoom-on-hover" style="width:100%">
+                        </a>
+                        <h2 class="text-white mb-4 mt-4">Investors</h2>
+                        <p class="text-white-50">Invest in Changsha and unlock the potential of China's growing market. With a strong economy Changsha offers opportunities for investors in various industries. Join us in Changsha and tap into success.</p>
+                        <a href="Invest.html" class="ctn">All Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Projects-->
+        <section class="projects-section bg-light" id="projects">
+            <div class="container px-4 px-lg-5">
+                <!-- Featured Project Row-->
+                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="img/WHY.jpg" alt="..." /></div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4>WHY CSC?</h4>
+                            <p class="text-black mb-0">Changsha is a vibrant city in central China that offers a perfect blend of history, culture, natural beauty, and economic growth. With ancient landmarks, modern attractions, and delicious cuisine, Changsha is a must-visit destination. Whether you are the <b>vistors</b>, <b>professionals</b> or <b>investors</b> you'll find your interests and values <b>HERE</b>!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project One Row-->
+                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="img/History.jpg" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">History</h4>
+                                    <p class="mb-0 text-white-50">Changsha is a city in China with a history of over 3,000 years. It was a center of agriculture, commerce, and culture during the Han and Tang dynasties. It played a significant role in the Chinese Revolution and the Second Sino-Japanese War. Today, it is a major city known for its cultural heritage, natural scenery, and economic development.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Two Row-->
+                <div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="img/culture.jpg" alt="..." /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Culture</h4>
+                                    <p class="mb-0 text-white-50">Changsha's culture is a rich and diverse blend of ancient traditions and modern influences. From museums and galleries to traditional arts and literature, the city offers a unique cultural experience. Additionally, Changsha's spicy Hunan cuisine is famous for its bold flavors and fiery spices.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="detail-section">
+            <div class="container px-5 my-5">
+              <div class="row gx-5 align-items-center">
+                <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="img/climate.jpg" alt="..."></div>
+                <div class="col-lg-6">
+                  <h2 class="fw-bolder">Climate</h2>
+                  <p class="lead fw-normal text-muted mb-0">Changsha, the capital of Hunan province in China, enjoys a humid subtropical climate with four distinct seasons. The mild winters and comfortable temperatures in spring and autumn make these seasons ideal for outdoor activities and sightseeing. Despite the hot and humid summers, the abundant rainfall contributes to the city's lush greenery and scenic landscapes.
+                  </p>
+                </div>
+                <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0"
+                    src="img/economy.jpg" alt="..."></div>
+                <div class="col-lg-6">
+                  <h2 class="fw-bolder">Economy</h2>
+                  <p class="lead fw-normal text-muted mb-0">Changsha, a thriving economic hub in China's Hunan province, boasts a diverse and robust economy. Key advantages include its well-developed infrastructure, strategic location in the Yangtze River Delta region, and a strong focus on high-tech industries, education, and research. These factors contribute to the city's rapid economic growth and its attractiveness to both domestic and international investors.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+        <!-- Signup-->
+        <section class="signup-section" id="signup">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                        <h2 class="text-white mb-5">Looking forward to your arrival</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
