@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Visitor</title>
+    <title>Tourist</title>
     <!--<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
     <!-- Font Awesome icons (free version)-->
     <script src="js/all.js" crossorigin="anonymous"></script>
@@ -26,7 +26,7 @@
     <script src="js/jquery.min.js"></script><!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
     <script src="js/popper.min.js"></script><!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/plotly-latest.min.js"></script>
     
 
     <style>
@@ -136,19 +136,6 @@
         z-index: 1;
     }
 
-    /* .breadcrumb {
-    background-color: transparent;
-    padding: 0px;
-    display: inline-block;
-    }
-
-    .breadcrumb a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        position: relative;
-    } */
-
     .breadcrumb {
         background-color: transparent;
         padding-top: 28px;
@@ -169,7 +156,7 @@
 
 
     .breadcrumb a.current {
-        color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+        color: rgb(229, 4, 105);
     }
 
     .mastheads {
@@ -179,8 +166,6 @@
     height: auto;
     min-height: 35rem;
     padding: 15rem 0;
-    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
-    /* background: url("../assets/img/bg.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -204,7 +189,6 @@
     height: 80%;
     min-height: 35rem;
     padding: 15rem 0;
-    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
     background: url("resources/image/visitor1.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -248,17 +232,13 @@
         const map = new AMap.Map('map', {
         zoom: 12,
         center: [112.938814, 28.228209],
-        //zoomEnable:false,
-        // resizeEnable: true,
         scrollWheel: false,
         });
 
-        // 添加缩放控件
+        //zoom in and out
         map.plugin([
         'AMap.ToolBar',], function(){
-            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
             map.addControl(new AMap.ToolBar({
-                // 简易缩放模式，默认为 false
                 liteStyle: true
             }));
         });
@@ -269,49 +249,42 @@
         {
             position: [112.935724, 28.184359],
             title: 'Yuelu Mountain Scenic Area',
-            info: 'The Yuelu Mountain Scenic Area is a famous tourist attraction in Changsha, with its beautiful natural scenery and rich cultural landscape attracting many visitors.',
             image:'resources/image/yuelu.png',
             link:'./more/v_yuelushan.html',
         },
         {
             position: [112.962, 28.192045],
-            title: 'The Head of Orange Island',
-            info: 'Orange Head is a small island in the Xiangjiang River in Changsha, named after its resemblance to an orange.',
+            title: 'Orange Island',
             image: 'resources/image/Orange Island.jpg',
             link:'./more/v_orange.html',
         },
         {
             position: [112.993499, 28.211933],
             title: 'Hunan Provincial Museum',
-            info: 'The Hunan Provincial Museum is a large comprehensive museum that houses a large collection of valuable cultural relics and historical heritage.',
             image:'resources/image/Hunan Provincial Museum.png',
             link:'./more/v_museum.html',
         },
         {
             position: [112.97736, 28.196558],
-            title: 'WuYi Square Commercial Area',
-            info: 'Very tasty place.',
+            title: 'WuYi Square',
             image:'resources/image/Wuyi Square.jpg',
             link:'./more/v_mayday.html',
         },
         {
             position: [112.902662, 28.192855],
-            title: 'Meixi Lake Cultural Arts Centre',
-            info: 'The cultural centres grand theatre has been the venue for a variety of performances and recordings, and as a result is now the leading cultural and media centre in China.',
+            title: 'Changsha Meixihu International Cultural Arts Centre',
             image:'resources/image/Meixi Lake.png',
             link:'./more/v_meixi.html',
         },
         {
             position: [112.96966, 28.189035],
             title: 'Super Wen and You',
-            info: 'Very tasty place',
             image:'resources/image/Super Wen and Yu.jpg',
             link:'./more/v_super.html',
         },
         {
             position: [113.054886, 28.236845],
             title: 'Window of the World',
-            info: 'It is a comprehensive theme park that combines pioneering fashion activities, large scale equipment rides, architectural wonders of the world, five continents, singing and dancing performances and film and television shooting bases.',
             image:'resources/image/Changsha Window.png',
             link:'./more/v_window.html',
         },
@@ -332,34 +305,6 @@
                 <a href="${attraction.link}" id="learnMore">Learn more</a> `,
                 offset: new AMap.Pixel(0, -30),
             });
-
-            /* marker.on("click", () => {
-                infoWindow.open(map, marker.getPosition());
-            });
-
-            */
-            /* marker.on('click', function() {
-                infoWindow.open(map, marker.getPosition());
-                // 为 learnMore 元素添加监听器
-                infoWindow.on('open', function() {
-                    addLearnMoreListener();
-                });
-            });
-
-            map.on('click', function() {
-                infoWindow.close();
-            });
-
-            // 添加 Learn more 点击事件监听器
-            function addLearnMoreListener() {
-                var learnMoreElement = document.getElementById('learnMore');
-                if (learnMoreElement) {
-                    learnMoreElement.addEventListener('click', function(e) {
-                        e.preventDefault(); // 阻止链接的默认行为
-                        window.open('your_local_html_file.html', '_blank');
-                    });
-                }
-            }*/
         
             function createInfoWindowContent() {
                 var content = document.createElement('div');
@@ -384,9 +329,9 @@
         $(function(){
             $(window).scroll(function(){
                 if($(window).scrollTop() > 100){
-                    $("#gotop").fadeIn(1000);//一秒渐入动画
+                    $("#gotop").fadeIn(1000);//1s display slowly
                 }else{
-                    $("#gotop").fadeOut(1000);//一秒渐隐动画
+                    $("#gotop").fadeOut(1000);//1s disapear slowly
                 }
             });
 
@@ -408,12 +353,12 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
-        
+        <a href="Home.html"><img src="img/icon.png" width="30"></a>&nbsp;
             <div class="breadcrumb" style="display:flex;vertical-align: middle;">
                 <div class="nav-item">
                 <a href="Home.html">&nbsp Welcome to CSC</a>
                 <span class="divider">></span>
-                <a class="current" href="#page-top">&nbsp Visitor</a>
+                <a class="current" href="#page-top">&nbsp Tourist</a>
                 <!-- <span class="divider">></span> -->
                 <!-- <a href="#">&nbsp Learn More</a> -->
                 </div>
@@ -451,7 +396,7 @@
                 <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                     <div class="container">
                     <!--title-->
-                    <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 90px;font-weight: bold;background-color: rgb(171, 245, 197);">Welcome Visitor<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
+                    <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 90px;font-weight: bold;background-color: rgb(171, 245, 197);">Welcome Tourist<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
                     <br>
                     <p style="font-size: 18px;color:rgb(203, 243, 217);">Learn about attractions, entertainment, food, <br>and accommodation in Changsha.</p>
                     </div>
@@ -471,7 +416,7 @@
         <!--map-->
         <div id="map" class="mt-3"></div>
         <br>
-        <!-- <h2 style="color:whitesmoke;padding-left: 50px;text-align: left;font-family:STHeiti;">Visitor Map & Location Description</h2> -->       
+        <!-- <h2 style="color:whitesmoke;padding-left: 50px;text-align: left;font-family:STHeiti;">Tourist Map & Location Description</h2> -->       
     </section>
 
     <div class="container" id="topattractions">
@@ -482,12 +427,12 @@
             <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
         </div>
         <br>
-        <!-- 使用Bootstrap 5的栅格系统将卡片水平排列在一行里 -->
+       
         <div class="container mt-3">
         <!--div class="row row-cols-1 row-cols-md-3 g-4 mt-3"-->
-        <!-- 使用Bootstrap 5创建卡片组件以展示景点图片 -->
+   
         <div class="row">
-            <!-- 第一个卡片 -->
+            <!-- card1 -->
             <div class="col-md-4">
                 <div class="card">
                 <div class="hover-image-container">
@@ -502,7 +447,7 @@
                 </div>
                 </div>
             </div>
-            <!-- 第二个卡片 -->
+            <!--  card2 -->
             <div class="col-md-4">
                 <div class="card">
                 <div class="hover-image-container">
@@ -517,7 +462,7 @@
                 </div>
                 </div>
             </div>
-            <!-- 第三个卡片 -->
+            <!-- card3 -->
             <div class="col-md-4">
                 <div class="card">
                 <div class="hover-image-container">
@@ -689,11 +634,11 @@
           
         </div>
     </section>
-        <script src="js/aos.js"></script>
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/popper1.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script>AOS.init();</script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/popper1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>AOS.init();</script>
        
     <!-- </div> -->
 
