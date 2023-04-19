@@ -26,7 +26,7 @@
     <script src="js/jquery.min.js"></script><!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
     <script src="js/popper.min.js"></script><!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/plotly-latest.min.js"></script>
     
 
     <style>
@@ -136,19 +136,6 @@
         z-index: 1;
     }
 
-    /* .breadcrumb {
-    background-color: transparent;
-    padding: 0px;
-    display: inline-block;
-    }
-
-    .breadcrumb a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        position: relative;
-    } */
-
     .breadcrumb {
         background-color: transparent;
         padding-top: 28px;
@@ -169,7 +156,7 @@
 
 
     .breadcrumb a.current {
-        color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+        color: rgb(229, 4, 105); 
     }
 
     .mastheads {
@@ -179,8 +166,6 @@
     height: auto;
     min-height: 35rem;
     padding: 15rem 0;
-    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
-    /* background: url("../assets/img/bg.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -204,7 +189,6 @@
     height: 82%;
     min-height: 35rem;
     padding: 15rem 0;
-    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
     background: url("resources/image/pro1.png");
     background-position: center;
     background-repeat: no-repeat;
@@ -292,17 +276,12 @@
         const map = new AMap.Map('map', {
         zoom: 12,
         center: [112.938814, 28.228209],
-        //zoomEnable:false,
-        // resizeEnable: true,
         scrollWheel: false,
         });
 
-        // 添加缩放控件
         map.plugin([
         'AMap.ToolBar',], function(){
-            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
             map.addControl(new AMap.ToolBar({
-                // 简易缩放模式，默认为 false
                 liteStyle: true
             }));
         });
@@ -318,35 +297,30 @@
         {
           position: [112.950036, 28.220769],
           title: 'Zhonglian Technology Park',
-          info: 'Zhonglian Technology Park',
           image: 'resources/image/Zhonglian.jpg',
           link:'./more/p_zhonglian.html',
         },
         {
           position: [112.855401, 28.235388],
           title: 'Lugu Technology Innovation and Entrepreneurship Park',
-          info: 'Lugu Technology Innovation and Entrepreneurship Park',
           image:'resources/image/Lugu.jpg',
           link:'./more/p_lugu.html',
         },
         {
           position: [112.984615, 28.193409],
           title: 'Changsha World Trade Center',
-          info: 'Changsha World Trade Center',
           image:'resources/image/World Trade Center.jpg',
           link:'./more/p_worldtrade.html',
         },
         {
           position: [112.978385, 28.192773],
           title: 'IFS',
-          info: 'IFS',
           image:'resources/image/IFS.jpg',
           link:'./more/p_ifs.html',
         },
         {
           position: [112.893315, 28.216031],
           title: 'Changsha National High-tech Industrial Development Zone',
-          info: 'Changsha National High-tech Industrial Development Zone',
           image:'resources/image/High-tech.jpg',
           link:'./more/p_hightech.html',
         },
@@ -363,38 +337,9 @@
                 content: `<h3><span style="font-size:13px">${attraction.title}</span></h3>
                 <img src="${attraction.image}" style="width: 200px; height: 200px; text-align:center;" alt="${attraction.title}"> <!-- 添加图片元素 -->
                 <br>
-                <<a href="${attraction.link}" id="learnMore">Learn more</a> `,
+                <a href="${attraction.link}" id="learnMore">Learn more</a> `,
                 offset: new AMap.Pixel(0, -30),
-                //isCustom: true,
             });
-
-            /* marker.on("click", () => {
-                infoWindow.open(map, marker.getPosition());
-            });
-
-            */
-            /* marker.on('click', function() {
-                infoWindow.open(map, marker.getPosition());
-                // 为 learnMore 元素添加监听器
-                infoWindow.on('open', function() {
-                    addLearnMoreListener();
-                });
-            });
-
-            map.on('click', function() {
-                infoWindow.close();
-            });
-
-            // 添加 Learn more 点击事件监听器
-            function addLearnMoreListener() {
-                var learnMoreElement = document.getElementById('learnMore');
-                if (learnMoreElement) {
-                    learnMoreElement.addEventListener('click', function(e) {
-                        e.preventDefault(); // 阻止链接的默认行为
-                        window.open('your_local_html_file.html', '_blank');
-                    });
-                }
-            }*/
         
             function createInfoWindowContent() {
                 var content = document.createElement('div');
@@ -419,9 +364,9 @@
         $(function(){
             $(window).scroll(function(){
                 if($(window).scrollTop() > 100){
-                    $("#gotop").fadeIn(1000);//一秒渐入动画
+                    $("#gotop").fadeIn(1000);
                 }else{
-                    $("#gotop").fadeOut(1000);//一秒渐隐动画
+                    $("#gotop").fadeOut(1000);
                 }
             });
 
@@ -432,8 +377,6 @@
     });
 
     </script>
-    <!-- 引入Bootstrap 5 JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x61Y/CEjjzD+2/2us" crossorigin="anonymous"></script>-->
 </head>
 
 <body onload="initMap()" id="page-top">
@@ -445,7 +388,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
-        
+        <a href="Home.html"><img src="img/icon.png" width="30"></a>&nbsp;
             <div class="breadcrumb" style="display:flex;vertical-align: middle;">
                 <div class="nav-item">
                 <a href="Home.html">&nbsp Welcome to CSC</a>
@@ -480,18 +423,6 @@
         
     </div>
     </nav>
-
-    <!-- Masthead-->
-    <!-- <header class="masthead">
-        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-            <div class="container">
-            
-            <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 100px;font-weight: bold;background-color: rgb(205, 255, 252);">Welcome Visitor<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
-            <br>
-            <p style="font-size: 18px;color:lightcyan;">Learn about attractions, transportation, food, <br>and specialties in Changsha.</p>
-            </div>
-        </div>
-    </header> -->
 
     <div style="background-color: black;">
     <div class="row">
@@ -657,7 +588,7 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/popper1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script>AOS.init();</script>
+    <script>AOS.init();</script>
        
 
     <!-- Signup-->
@@ -675,8 +606,8 @@
   <!-- Footer-->
   <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">EBU6305-G04-coursework-2023</div></footer>
   <!-- Bootstrap core JS-->
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 
 </body>

@@ -24,9 +24,9 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <script src="js/jquery.min.js"></script><!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
-    <script src="js/popper1.min.js"></script><!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="js/popper.min.js"></script><!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/plotly-latest.min.js"></script>    
+    <script src="js/plotly-latest.min.js"></script>
 
     <style>
     #map {
@@ -159,7 +159,7 @@
 
 
     .breadcrumb a.current {
-        color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+        color: rgb(229, 4, 105); 
     }
 
     .mastheads {
@@ -261,7 +261,7 @@
     }
     </style>
 
-    <script src="js/maps.js"></script>
+<script src="js/maps.js"></script>
     <script>
     function initMap() {
         const map = new AMap.Map('map', {
@@ -270,12 +270,10 @@
         scrollWheel: false,
         });
 
-        // 添加缩放控件
+        
         map.plugin([
         'AMap.ToolBar',], function(){
-            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
             map.addControl(new AMap.ToolBar({
-                // 简易缩放模式，默认为 false
                 liteStyle: true
             }));
         });
@@ -284,42 +282,36 @@
         {
           position: [112.964108,28.234831],
           title: 'Changsha Investment Holding Co.',
-          info: 'Financial development, capital operation, and industry guidance platform of Changsha',
           image:'resources/image/add1.webp',
           link:'./more/i_invest.html',
         },
         {
           position: [112.813143,28.189849],
           title: 'Zoomlion Smart Industrial City',
-          info: 'Environmentally friendly and ecological high-end equipment intelligent manufacturing base and artificial intelligence research application base, one of the major leading industrial projects in 2023',
           image: 'resources/image/add2.jpg',
           link:'./more/i_zoomlion.html',
         },
         {
           position: [113.121431,28.202303],
-          title: 'Changsha Artificial Intelligence Innovation Centre',
-          info: 'A technology innovation platform integrating computing services, industry gathering, application innovation incubation and talent training, one of the major technology innovation projects in 2023。',
+          title: 'Changsha Technology New City',// 'Changsha Artificial Intelligence Innovation Centre'
           image:'resources/image/add3.jpeg',
-          link:'./more/i_artificial.html',
+          link:'./more/i_artifical.html',
         },
         {
           position: [113.23767,28.174803],
-          title: 'Changsha Huanghua International Airport T3 (under construction)',
-          info: 'Airport expansion project, one of the major infrastructure projects in 2023',
+          title: 'Changsha Huanghua International Airport T3',
           image:'resources/image/add4.png',
           link:'./more/i_t3.html',
         },
         {
           position: [112.938473,28.227538],
           title: 'Changsha Development and Reform Commission',
-          info: 'Changsha Development and Reform Commission',
           image:'resources/image/add5.webp',
           link:'./more/i_reform.html',
         },
         {
           position: [113.08702,28.239405],
           title: 'Changsha Economic and Technological Development Zone',
-          info: 'Changsha Economic and Technological Development Zone',
           image:'resources/image/add6.webp',
           link:'./more/i_economy.html',
         },
@@ -337,7 +329,7 @@
                 content: `<h3><span style="font-size:13px">${attraction.title}</span></h3>
                 <img src="${attraction.image}" style="width: 200px; height: 200px; text-align:center;" alt="${attraction.title}"> <!-- 添加图片元素 -->
                 <br>
-                <<a href="${attraction.link}" id="learnMore">Learn more</a> `,
+                <a href="${attraction.link}" id="learnMore">Learn more</a> `,
                 offset: new AMap.Pixel(0, -30),
                 //isCustom: true,
             });
@@ -367,9 +359,9 @@
         $(function(){
             $(window).scroll(function(){
                 if($(window).scrollTop() > 100){
-                    $("#gotop").fadeIn(1000);//一秒渐入动画
+                    $("#gotop").fadeIn(1000);
                 }else{
-                    $("#gotop").fadeOut(1000);//一秒渐隐动画
+                    $("#gotop").fadeOut(1000);
                 }
             });
 
@@ -380,7 +372,7 @@
     });
 
     </script>
-    <!-- 引入Bootstrap 5 JavaScript -->
+    
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x61Y/CEjjzD+2/2us" crossorigin="anonymous"></script>-->
 </head>
 
@@ -394,15 +386,15 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
-        
+        <a href="Home.html"><img src="img/icon.png" width="30"></a>&nbsp;
             <div class="breadcrumb" style="display:flex;vertical-align: middle;">
                 <div class="nav-item">
                 <a href="Home.html">&nbsp Welcome to CSC</a>
                 <span class="divider">></span>
                 <a class="current" href="#page-top">&nbsp Investor</a>
-                </div>
+            </div>
            
-        </div>
+    </div>
         
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
@@ -545,10 +537,9 @@
 </section>
     <script src="js/aos.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script>AOS.init();</script>
-    <br><br><br>
+    <script src="js/popper1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script><script>AOS.init();</script>
+<br><br><br>
  
   <div id="policy" style="padding-top: 2%;padding-bottom: 2%;">
     <!--pictures and captions(Entertainment & Shopping)-->
@@ -594,7 +585,7 @@
 <script>
     const data = [{
             x: [2017, 2018, 2019, 2020, 2021, 2022],
-            y: [10535.51, 11003.41, 11574.22, 12142.52, 13270.7, 13966.11], // 在这里插入全国人均GDP数据
+            y: [10535.51, 11003.41, 11574.22, 12142.52, 13270.7, 13966.11], 
             mode: 'lines+markers',
             name: 'Changsha Gross Domestic Product (billion)',
             hovertemplate: '%{y:,.0f}<extra></extra>',
@@ -604,7 +595,7 @@
         },
         {
             x: [2017, 2018, 2019, 2020, 2021, 2022],
-            y: [379.45, 318.73, 359.69, 423.46, 425.56, 451.3], // 在这里插入湖南省全省人均GDP数据
+            y: [379.45, 318.73, 359.69, 423.46, 425.56, 451.3], 
             mode: 'lines+markers',
             name: 'Gross primary sector (billion)',
             hovertemplate: '%{y:,.0f}<extra></extra>',
@@ -614,7 +605,7 @@
         },
         {
             x: [2017, 2018, 2019, 2020, 2021, 2022],
-            y: [4998.26, 2660.19, 4439.32, 4739.27, 5251.3, 5589.58], // 在这里插入长沙市人均GDP数据
+            y: [4998.26, 2660.19, 4439.32, 4739.27, 5251.3, 5589.58], 
             mode: 'lines+markers',
             name: 'Gross secondary sector (billion)',
             hovertemplate: '%{y:,.0f}<extra></extra>',
@@ -625,7 +616,7 @@
 
         {
             x: [2017, 2018, 2019, 2020, 2021, 2022],
-            y: [5157.8, 6024.49, 6775.21, 6979.79, 7593.85, 7925.24], // 在这里插入长沙市人均GDP数据
+            y: [5157.8, 6024.49, 6775.21, 6979.79, 7593.85, 7925.24], 
             mode: 'lines+markers',
             name: 'Gross third sector (billion)',
             hovertemplate: '%{y:,.0f}<extra></extra>',
