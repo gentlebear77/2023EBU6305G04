@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor page</title-->
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="resources/css/bootstrap.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/image/CSCicon.png" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Grayscale - Start Bootstrap Theme</title>
+    <!--<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"><!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script><!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script><!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    
+
+    <style>
+    #map {
+        height: 550px;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .zoom-button {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 3px;
+        margin: 5px;
+        }
+
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    .hover-image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hover-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .hover-image-container .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .hover-image-container:hover .overlay {
+        opacity: 1;
+    }
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+    }
+
+    .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .image-container:hover img {
+        transform: scale(1.1);
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .bg-image {
+        background-image: url('resources/image/Entertainment.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        height: 90vh;
+    }
+
+    .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .content-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 2rem;
+        z-index: 1;
+    }
+
+    /* .breadcrumb {
+    background-color: transparent;
+    padding: 0px;
+    display: inline-block;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        position: relative;
+    } */
+
+    .breadcrumb {
+        background-color: transparent;
+        padding-top: 28px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color:gray;
+        font-weight: bold;
+    }
+
+    .breadcrumb .divider {
+        color: grey;
+        padding: 0 5px;
+    }
+
+
+    .breadcrumb a.current {
+        color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+    }
+
+    .mastheads {
+    position: relative;
+    width: 100%;
+    float: right;
+    height: auto;
+    min-height: 35rem;
+    padding: 15rem 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
+    /* background: url("../assets/img/bg.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .mastheads h1, .mastheads .h1 {
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    }
+
+    .mastheadsss {
+    position: relative;
+    width: 100%;
+    float: right;
+    height: 80%;
+    min-height: 35rem;
+    padding: 15rem 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
+    background: url("resources/image/visitor1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .mastheadsss h1, .mastheadsss .h1 {
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    }
+
+    .signup-section1 {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("resources/image/visitor2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    }
+    .signup-section1 .form-signup input {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 1.25rem 2rem;
+    height: auto;
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    border: 0;
+    }
+    </style>
+
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=bcbf9d1c5d8d1da4e904b8ca5181816d"></script>
+    <script>
+    function initMap() {
+        const map = new AMap.Map('map', {
+        zoom: 12,
+        center: [112.938814, 28.228209],
+        //zoomEnable:false,
+        // resizeEnable: true,
+        scrollWheel: false,
+        });
+
+        // 添加缩放控件
+        map.plugin([
+        'AMap.ToolBar',], function(){
+            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+            map.addControl(new AMap.ToolBar({
+                // 简易缩放模式，默认为 false
+                liteStyle: true
+            }));
+        });
+    
+        const attractions = 
+        [
+   
+        {
+            position: [112.935724, 28.184359],
+            title: 'Yuelu Mountain Scenic Area',
+            info: 'The Yuelu Mountain Scenic Area is a famous tourist attraction in Changsha, with its beautiful natural scenery and rich cultural landscape attracting many visitors.',
+            image:'resources/image/yuelu.png',
+            link:'fourimage.html',
+        },
+        {
+            position: [112.962, 28.192045],
+            title: 'The Head of Orange Island',
+            info: 'Orange Head is a small island in the Xiangjiang River in Changsha, named after its resemblance to an orange.',
+            image: 'resources/image/Orange Island.jpg',
+            link:'hotel.html',
+        },
+        {
+            position: [112.993499, 28.211933],
+            title: 'Hunan Provincial Museum',
+            info: 'The Hunan Provincial Museum is a large comprehensive museum that houses a large collection of valuable cultural relics and historical heritage.',
+            image:'resources/image/Hunan Provincial Museum.png',
+            link:'fourimage.html',
+        },
+        {
+            position: [112.97736, 28.196558],
+            title: 'May Day Square Commercial Area',
+            info: 'Very tasty place.',
+            image:'resources/image/Wuyi Square.jpg',
+            link:'fourimage.html',
+        },
+        {
+            position: [112.902662, 28.192855],
+            title: 'Meixi Lake Cultural Arts Centre',
+            info: 'The cultural centres grand theatre has been the venue for a variety of performances and recordings, and as a result is now the leading cultural and media centre in China.',
+            image:'resources/image/Meixi Lake.png',
+            link:'fourimage.html',
+        },
+        {
+            position: [112.96966, 28.189035],
+            title: 'Super Wen and You',
+            info: 'Very tasty place',
+            image:'resources/image/Super Wen and Yu.jpg',
+            link:'fourimage.html',
+        },
+        {
+            position: [113.054886, 28.236845],
+            title: 'Window of the World',
+            info: 'It is a comprehensive theme park that combines pioneering fashion activities, large scale equipment rides, architectural wonders of the world, five continents, singing and dancing performances and film and television shooting bases.',
+            image:'resources/image/Changsha Window.png',
+            link:'fourimage.html',
+        },
+   
+        ];
+
+        attractions.forEach((attraction) => {
+            const marker = new AMap.Marker({
+                position: attraction.position,
+                title: attraction.title,
+                map: map,
+            });
+     
+            const infoWindow = new AMap.InfoWindow({
+                content: `<h3><span style="font-size:13px">${attraction.title}</span></h3>
+                <img src="${attraction.image}" style="width: 200px; height: 200px; text-align:center;" alt="${attraction.title}"> <!-- 添加图片元素 -->
+                <br>
+                <a href="${attraction.link}" target="_blank" id="learnMore">Learn more</a> `,
+                offset: new AMap.Pixel(0, -30),
+                //isCustom: true,
+            });
+
+            /* marker.on("click", () => {
+                infoWindow.open(map, marker.getPosition());
+            });
+
+            */
+            /* marker.on('click', function() {
+                infoWindow.open(map, marker.getPosition());
+                // 为 learnMore 元素添加监听器
+                infoWindow.on('open', function() {
+                    addLearnMoreListener();
+                });
+            });
+
+            map.on('click', function() {
+                infoWindow.close();
+            });
+
+            // 添加 Learn more 点击事件监听器
+            function addLearnMoreListener() {
+                var learnMoreElement = document.getElementById('learnMore');
+                if (learnMoreElement) {
+                    learnMoreElement.addEventListener('click', function(e) {
+                        e.preventDefault(); // 阻止链接的默认行为
+                        window.open('your_local_html_file.html', '_blank');
+                    });
+                }
+            }*/
+        
+            function createInfoWindowContent() {
+                var content = document.createElement('div');
+                content.innerHTML = infoWindowContent;
+                content.style.cursor = 'defaul';
+                content.style.width='auto';
+                content.style.height = 'auto';
+                return content;
+            }
+
+            marker.on('click', function() {
+                infoWindow.open(map, marker.getPosition());
+            });
+
+            map.on('click', function() {
+                infoWindow.close();
+            })
+        });
+    }
+
+    $(function () {
+        $(function(){
+            $(window).scroll(function(){
+                if($(window).scrollTop() > 100){
+                    $("#gotop").fadeIn(1000);//一秒渐入动画
+                }else{
+                    $("#gotop").fadeOut(1000);//一秒渐隐动画
+                }
+            });
+
+            $("#gotop").click(function(){
+                $('body,html').animate({scrollTop:0},1000);
+            });
+        });
+    });
+
+    </script>
+    <!-- 引入Bootstrap 5 JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x61Y/CEjjzD+2/2us" crossorigin="anonymous"></script>-->
+</head>
+
+<body onload="initMap()" id="page-top">
+    <!-- jQuery -->
+    <script src="resources/js/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="resources/js/bootstrap.bundle.js"></script>
+    
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        
+            <div class="breadcrumb" style="display:flex;vertical-align: middle;">
+                <div class="nav-item">
+                <a href="#">&nbsp Homepage</a>
+                <span class="divider">></span>
+                <a class="current" href="#">&nbsp Visitor</a>
+                <!-- <span class="divider">></span> -->
+                <!-- <a href="#">&nbsp Learn More</a> -->
+                </div>
+           
+        </div>
+        
+        <a class="navbar-brand" href="#page-top" style="padding-left:20%;">Welcome to CSC</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-right:5% ;">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#mappage" style="font-weight: bold;">Map</a></li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-expanded="true" style="font-weight: bold;">About</a>
+                    <ul class="dropdown-menu text-wrap" style="font-size:12px;">
+                        <li><a class="dropdown-item" href="#topattractions" style="font-weight: bold;">Top Attractions</a></li>
+                        <li><a class="dropdown-item" href="#entertainment&shopping" style="font-weight: bold;">Entertainment & Shopping</a></li>
+                        <li><a class="dropdown-item" href="#gourmetfood" style="font-weight: bold;">Gourmet Food</a></li>
+                        <li><a class="dropdown-item" href="#accomodation" style="font-weight: bold;">Accomodation</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        
+    </div>
+    </nav>
+
+    <!-- Masthead-->
+    <!-- <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="container">
+            
+            <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 100px;font-weight: bold;background-color: rgb(205, 255, 252);">Welcome Visitor<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
+            <br>
+            <p style="font-size: 18px;color:lightcyan;">Learn about attractions, transportation, food, <br>and specialties in Changsha.</p>
+            </div>
+        </div>
+    </header> -->
+
+    <div style="background-color: black;">
+    <div class="row">
+        <div class="col-6">
+            <header class="mastheads">
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                    <div class="container">
+                    <!--title-->
+                    <h1 style="letter-spacing:0;word-wrap:break-word;line-height: 1;font-family: STHeiti; font-size: 90px;font-weight: bold;background-color: rgb(171, 245, 197);">Welcome Visitor<span style="font-family: SimHei;color: rgb(255, 25, 198);">.</span></h1>
+                    <br>
+                    <p style="font-size: 18px;color:rgb(203, 243, 217);">Learn about attractions, entertainment, food, <br>and accommodation in Changsha.</p>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="col-6">
+            <header class="mastheadsss">
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                </div>
+            </header>
+        </div>
+    </div>
+    </div>
+
+    <section class="about-section text-center" id="mappage" style="padding-top: 0.1%;padding-bottom: 10%;">
+        <!--map-->
+        <div id="map" class="mt-3"></div>
+        <br>
+        <!-- <h2 style="color:whitesmoke;padding-left: 50px;text-align: left;font-family:STHeiti;">Visitor Map & Location Description</h2> -->       
+    </section>
+
+    <div class="container" id="topattractions">
+        <br><br><br>
+        <!--pictures and captions(Top Attractions)-->
+        <div style="text-align: center;">
+            <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Top Attractions</h1>
+            <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+        </div>
+        <br>
+        <!-- 使用Bootstrap 5的栅格系统将卡片水平排列在一行里 -->
+        <div class="container mt-3">
+        <!--div class="row row-cols-1 row-cols-md-3 g-4 mt-3"-->
+        <!-- 使用Bootstrap 5创建卡片组件以展示景点图片 -->
+        <div class="row">
+            <!-- 第一个卡片 -->
+            <div class="col-md-4">
+                <div class="card">
+                <div class="hover-image-container">
+                    <img src="resources/image/YueluMountain.jpg" class="card-img-top" alt="attraction 1">
+                    <div class="overlay">
+                        <h3>Yuelu Mountain</h3>
+                        <p>Yuelu Mountain is one of China's renowned historical and cultural mountains. The mountain is home to many famous historical sites, such as the Yuelu Academy and Aiwan Pavilion. Yuelu Academy is one of the four most prestigious academies in Chinese history, boasting a long history and profound cultural heritage.</p >
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Yuelu Mountain</h5>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- 第二个卡片 -->
+            <div class="col-md-4">
+                <div class="card">
+                <div class="hover-image-container">
+                    <img src="resources/image/OrangeIsland.jpg" class="card-img-top" alt="attraction 2">
+                    <div class="overlay">
+                        <h3>Orange Island</h3>
+                        <p>Orange Island is a popular tourist destination in Changsha. It is named for its location opposite Yuelu Mountain. The statue of young Mao Zedong on Orange Island is one of the city's landmarks, and the island also hosts grand events such as the Orange Island Fireworks Festival.</p >
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Orange Island</h5>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- 第三个卡片 -->
+            <div class="col-md-4">
+                <div class="card">
+                <div class="hover-image-container">
+                    <img src="resources/image/Museum.jpg" class="card-img-top" alt="attraction 3">
+                    <div class="overlay">
+                        <h3>Hunan Provincial<br>Museum</h3>
+                        <p>The Hunan Provincial Museum is an important cultural institution that showcases the history and art of Hunan Province. The museum houses a variety of precious relics, including the well-preserved Mawangdui Han Dynasty Tombs and their stunning artifacts, such as the exquisite silk paintings and the well-preserved ancient female corpse.</p >
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Hunan Provincial Museum</h5>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        </div>
+    </div>
+     
+    <div id="entertainment&shopping" style="padding-top: 2%;padding-bottom: 2%;">
+    <!--pictures and captions(Entertainment & Shopping)-->
+    <div class="bg-image">
+        <div class="bg-overlay"></div>
+        <div class="content-container">
+            <h1 style="font-size: 35px; font-weight: bold; font-family: STHeiti; color: aliceblue;">Entertainment & Shopping</h1>
+            <br>
+            <p style="color: aliceblue;">Changsha is home to many large shopping centres, department stores and distinctive<br>
+                neighbourhoods. Wuyi Square, Huangxing Road Pedestrian Street and Pozi Street are<br>
+                some of the liveliest shopping areas in downtown Changsha, with a variety of brand<br> 
+                name shops, special snacks and traditional handicrafts.<br><br>
+                Entertainment in Changsha is varied and includes cinemas, KTV, bars and shows of all<br>
+                kinds. Changsha's nightlife is also quite rich, especially the bar street in the Hexi area.<br>
+                Traditional cultural events such as the Xiangjiang Theatre and the Orange Island Fireworks<br>
+                Gala in Changshaare also not to be missed.<br>
+            </p>
+        </div>
+    </div>
+    <br><br><br><br>
+    </div>
+
+    <div class="container">
+    <!--pictures and captions(Gourmet Food)-->
+        <div class="container" id="gourmetfood"  style="padding-top:5%;">
+            <div class="row">
+                <div class="col-md-6" style="text-align: center;">
+                    <br><br>
+                    <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Gourmet Food</h1>
+                    <hr style="width: 30%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+                    <br><br>
+                    <p style="font-weight:500;">With Hunan cuisine at its core, Changsha cuisine is a rich blend of spicy, numbing, aromatic, fresh and sour flavours that showcase a strong local identity. It offers a wide variety of cuisines, including street food, home-cooked dishes and specialties. Visitors to Changsha can sample a variety of delicious Hunan dishes and savour authentic snacks in the night markets and food streets to experience the rich food culture and unique dining experience of Changsha.</p>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food1.png" alt="food1">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food2.jpg" alt="food2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food3.jpg" alt="food3">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food4.png" alt="food4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food5.jpg" alt="food5">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food6.jpg" alt="food6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food7.jpg" alt="food7">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="image-container">
+                            <img src="resources/image/food8.jpg" alt="food8">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="text-align: center;">
+                <br><br>
+                <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Gourmet Food</h1>
+                <hr style="width: 30%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+                <br><br>
+                <p style="font-weight:500;">Changsha cuisine is rich and varied, and the following are some representative Changsha dishes:<br>
+                    Stinky tofu<br>
+                    Hunan steamed dishes<br>
+                    Steamed pork with dried vegetables<br>
+                    Fish Head with Minced Pepper<br>
+                    Fried Pork with Chilli<br>
+                    Hunan Rice Noodles<br>
+                    Sweet and Sour Poi</p>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+        <!--pictures and captions(Accommodation)-->
+        <div class="container mt-5" id="accomodation">
+            <div style="text-align: center;">
+            <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Accommodation</h1>
+            <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+            </div>
+
+        </div>
+    </div>   
+    <br>
+    <section class="about-section text-center" id="about" style="background-color:rgba(0, 0, 0, 0.918);padding-top:5%;padding-bottom: 10%;">
+        <div class="container px-4 px-lg-5">    
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="card">
+                        <img src="resources/image/acc1.jpg" class="card-img-top" alt="图片1">
+                        <div class="card-body">
+                            <h5 class="card-title">Yuelu District</h5>
+                            <p class="card-text"> Located in the western part of Changsha, Yuelu District is home to many famous attractions such as Yuelu Mountain, Yuelu Academy and Orange Island. Choosing to stay in the Yuelu District will make it easy for visitors to explore these attractions.<br><br><br><br><br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <img src="resources/image/acc2.jpg" class="card-img-top" alt="图片2">
+                        <div class="card-body">
+                            <h5 class="card-title">Tianxin District</h5>
+                            <p class="card-text">The Tianxin District is the downtown area of Changsha and has many shopping centres, restaurants and entertainment facilities. Famous attractions such as Wuyi Square, Huangxing Road Pedestrian Street and the Fire Palace are all located in the Tianxin District. Choosing to stay here allows visitors to enjoy easy access to transportation and a wealth of commercial facilities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
+                    <div class="card">
+                        <img src="resources/image/acc3.jpg" class="card-img-top" alt="图片3">
+                        <div class="card-body">
+                            <h5 class="card-title">Kaifu District</h5>
+                            <p class="card-text">Kaifu District is located in the northern part of Changsha City, adjacent to the Xiangjiang River. This area is home to many parks and recreational areas such as the Changsha Zoo, Du Fujiang Pavilion and Baisha Ancient Well. Choosing to stay in the Kaifu District allows visitors to experience the tranquility and natural beauty of the city of Changsha.<br><br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </section>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        <script>AOS.init();</script>
+       
+    <!-- </div> -->
+
+    <!-- Signup-->
+    <section class="signup-section1" id="signup">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-10 col-lg-8 mx-auto text-center">
+                    <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                    <h2 class="text-white mb-5">Looking forward to your visit</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>
+
