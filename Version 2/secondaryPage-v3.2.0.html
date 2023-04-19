@@ -115,6 +115,8 @@
         background-position: center;
         position: relative;
         height: 90vh;
+        display: grid;
+       
     }
 
     .bg-overlay {
@@ -230,6 +232,36 @@
     letter-spacing: 0.15rem;
     border: 0;
     }
+
+    .text-container {
+        padding: 2%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+    }
+
+      /* Responsive design styles */
+    @media only screen and (max-width: 1200px) {
+        h1, p {
+            font-size: 90%;
+        }
+    }
+    @media only screen and (max-width: 992px) {
+        h1, p {
+            font-size: 80%;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        h1, p {
+            font-size: 70%;
+        }
+    }
+    @media only screen and (max-width: 576px) {
+        h1, p {
+            font-size: 60%;
+        }
+    }
     </style>
 
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=bcbf9d1c5d8d1da4e904b8ca5181816d"></script>
@@ -256,42 +288,42 @@
           position: [112.964108,28.234831],
           title: 'Changsha Investment Holding Co.',
           info: 'Financial development, capital operation, and industry guidance platform of Changsha',
-          image:'resources/image/长沙投资控股有限公司.webp',
+          image:'resources/image/add1.webp',
           link:'fourimage.html',
         },
         {
           position: [112.813143,28.189849],
           title: 'Zoomlion Smart Industrial City',
           info: 'Environmentally friendly and ecological high-end equipment intelligent manufacturing base and artificial intelligence research application base, one of the major leading industrial projects in 2023',
-          image: 'resources/image/中联重科智慧产业城.jpg',
+          image: 'resources/image/add2.jpg',
           link:'fourimage.html',
         },
         {
           position: [113.121431,28.202303],
           title: 'Changsha Artificial Intelligence Innovation Centre',
           info: 'A technology innovation platform integrating computing services, industry gathering, application innovation incubation and talent training, one of the major technology innovation projects in 2023。',
-          image:'resources/image/长沙科技新城.jpeg',
+          image:'resources/image/add3.jpeg',
           link:'fourimage.html',
         },
         {
           position: [113.23767,28.174803],
           title: 'Changsha Huanghua International Airport T3 (under construction)',
           info: 'Airport expansion project, one of the major infrastructure projects in 2023',
-          image:'resources/image/长沙机场T3航站楼.png',
+          image:'resources/image/add4.png',
           link:'fourimage.html',
         },
         {
           position: [112.938473,28.227538],
           title: 'Changsha Development and Reform Commission',
           info: 'Changsha Development and Reform Commission',
-          image:'resources/image/长沙市发改委.webp',
+          image:'resources/image/add5.webp',
           link:'fourimage.html',
         },
         {
           position: [113.08702,28.239405],
           title: 'Changsha Economic and Technological Development Zone',
           info: 'Changsha Economic and Technological Development Zone',
-          image:'resources/image/长沙经济技术开发区.webp',
+          image:'resources/image/add6.webp',
           link:'fourimage.html',
         },
       ];
@@ -434,150 +466,124 @@
         <!-- <h2 style="color:whitesmoke;padding-left: 50px;text-align: left;font-family:STHeiti;">Visitor Map & Location Description</h2> -->       
     </section>
 
-    
-
-    <div class="container" id="developmentplan">
-        <br><br><br>
-        <!--pictures and captions(Top Attractions)-->
-        <div style="text-align: center;">
-            <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Urban Development Plan</h1>
-            <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
-        </div>
-        <br>
-        <!-- 使用Bootstrap 5的栅格系统将卡片水平排列在一行里 -->
-        <div class="container mt-3">
-        <!--div class="row row-cols-1 row-cols-md-3 g-4 mt-3"-->
-        <!-- 使用Bootstrap 5创建卡片组件以展示景点图片 -->
-        <div class="row">
-            <!-- 第一个卡片 -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="hover-image-container">
-                  <img src="resources/image/card1.jpg" class="card-img-top" alt="food 1">
-                  <div class="overlay">
-                    <h3>Finance</h3>
-                    <p>description1</p >
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">Finance</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 第二个卡片 -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="hover-image-container">
-                  <img src="resources/image/card2.jpg" class="card-img-top" alt="food 2">
-                  <div class="overlay">
-                    <h3>Culture & Travel</h3>
-                    <p>description2</p >
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">Culture & Travel</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 第三个卡片 -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="hover-image-container">
-                  <img src="resources/image/card3.jpg" class="card-img-top" alt="food 3">
-                  <div class="overlay">
-                    <h3>Technology</h3>
-                    <p>description3</p >
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">Technology</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>     
-       
-        </div>
-
-        <br>
-        <div class="row">
-            <!-- 第一个卡片 -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="hover-image-container">
-                  <img src="resources/image/card4.jpg" class="card-img-top" alt="food 1">
-                  <div class="overlay">
-                    <h3>Entertainment</h3>
-                    <p>description1</p >
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">Entertainment</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 第二个卡片 -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="hover-image-container">
-                  <img src="resources/image/card5.jpg" class="card-img-top" alt="food 2">
-                  <div class="overlay">
-                    <h3>Manufacturing</h3>
-                    <p>description2</p >
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">Manufacturing</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 第三个卡片 -->
-            <div class="col-md-4">
-              <div class="card">
-                <div class="hover-image-container">
-                  <img src="resources/image/card6.jpg" class="card-img-top" alt="food 3">
-                  <div class="overlay">
-                    <h3> Food & Beverage</h3>
-                    <p>description3</p >
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;"> Food & Beverage</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>    
-        </div> 
 
  <br><br><br><br><br>
- 
- 
-    <div id="policy" style="padding-top: 2%;padding-bottom: 2%;">
-    <!--pictures and captions(Entertainment & Shopping)-->
-    <div class="bg-image">
-        <div class="bg-overlay"></div>
-        <div class="col-md-8">
-            <h1 style="font-size: 35px; font-weight: bold; font-family: STHeiti; color: aliceblue;"><br>Favorable policies for investors</h1>
-            
-                <p style="color: aliceblue; font-weight: bold;">1. Optimising the business environment:</p> <p style="color: lightslategrey;"> Optimising the business environment, simplifying the administrative approval process, reducing investment costs and improving efficiency.</p >
-                <br>
-                <p style="color: aliceblue; font-weight: bold;">2. Industrial support policies:</p> <p style="color: lightslategrey;">Implement industrial support policy for key areas and provide various preferential measures.</p >
-                <br>
-                <p style="color: aliceblue; font-weight: bold;">3. Innovation and entrepreneurship support policy:</p> <p style="color: lightslategrey;">Provide support for technological innovation and entrepreneurial projects to encourage innovative and entrepreneurial activities.</p >
-                <br>
-                <p style="color: aliceblue; font-weight: bold;">4. Financial support policy:</p> <p style="color: lightslategrey;">Support the development of quality projects and SMEs through financial policy guidance and loan guarantees to reduce financing costs.</p >
+  <!--pictures and captions(Accommodation)-->
+  <div class="container mt-5" id="developmentplan" >
+    <div style="text-align: center;">
+    <h1 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Urban Development Plan</h1>
+    <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
+    </div>
+    <br><br>
+
+</div>
+</div>   
+<br>
+<section>
+<div class="container px-4 px-lg-5">    
+    <div class="row">
+        <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+            <div class="card">
+                <img src="resources/image/card1.jpg" class="card-img-top" alt="图片1">
+                <div class="card-body">
+                    <h5 class="card-title">Finance</h5>
+                    <p class="card-text">Changsha's financial market is becoming increasingly active and the development of the real economy continues to strengthen, especially in areas such as internet finance and financial technology, which have increased market potential.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+                <img src="resources/image/card2.jpg" class="card-img-top" alt="图片2">
+                <div class="card-body">
+                    <h5 class="card-title">Culture & Tourism</h5>
+                    <p class="card-text">The development of Changsha's tourism industry has increased significantly in recent years, with the city's beautification, rich tourism projects and increased popularity all driving the development of Changsha's cultural and tourism industry.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
+            <div class="card">
+                <img src="resources/image/card3.jpg" class="card-img-top" alt="图片3">
+                <div class="card-body">
+                    <h5 class="card-title">Technology</h5>
+                    <p class="card-text">Changsha is an important centre for science and technology innovation in the country. Technology companies in Changsha's technology city have a great advantage in terms of talent and technology, and are very promising investment targets.</p>
+                </div>
+            </div>
         </div>
     </div>
+  
+</div>
+<br><br>
+<div class="container px-4 px-lg-5">    
+  <div class="row">
+      <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+          <div class="card">
+              <img src="resources/image/card4.jpg" class="card-img-top" alt="图片1">
+              <div class="card-body">
+                  <h5 class="card-title">Entertainment</h5>
+                  <p class="card-text">Changsha is an important centre for science and technology innovation in the country. Technology companies in Changsha's technology city have a great advantage in terms of talent and technology, and are very promising investment targets.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="card">
+              <img src="resources/image/card5.jpg" class="card-img-top" alt="图片2">
+              <div class="card-body">
+                  <h5 class="card-title">Manufacturing</h5>
+                  <p class="card-text">The manufacturing industry in Changsha has always been a pillar industry of Changsha's economy. In particular, it has strong development potential and competitiveness in areas such as automobile and parts production and new materials manufacturing.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-left" data-aos-delay="600">
+          <div class="card">
+              <img src="resources/image/card6.jpg" class="card-img-top" alt="图片3">
+              <div class="card-body">
+                  <h5 class="card-title">Food & Beverage</h5>
+                  <p class="card-text">Changsha's catering industry is relatively well developed. In recent years, with the acceleration of urbanisation and the development of tourism, the catering industry has also seen new development trends such as an increase in demand for high-end catering. </p>
+              </div>
+          </div>
+      </div>
+  </div>
 
-    
-    <br><br><br>
+</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script>AOS.init();</script>
+<br><br><br>
+ 
+  <div id="policy" style="padding-top: 2%;padding-bottom: 2%;">
+    <!--pictures and captions(Entertainment & Shopping)-->
+    <div class="bg-image">
+      <div class="bg-overlay"></div>
+        <div class="col-md-8">
+          <div class="content-container">
+            <h1 style="font-size: 30px; font-weight: bold; font-family: STHeiti; color: aliceblue;"><br>Favorable policies for investors</h1>
+            <br>
+                <p style="color: aliceblue; font-weight: bold;">1. Optimising the business environment:</p> <p style="color: lightslategrey;"> Optimising the business environment, simplifying the administrative approval process, reducing investment costs and improving efficiency.</p >
+                
+                <p style="color: aliceblue; font-weight: bold;">2. Industrial support policies:</p> <p style="color: lightslategrey;">Implement industrial support policy for key areas and provide various preferential measures.</p >
+                
+                <p style="color: aliceblue; font-weight: bold;">3. Innovation and entrepreneurship support policy:</p> <p style="color: lightslategrey;">Provide support for technological innovation and entrepreneurial projects to encourage innovative and entrepreneurial activities.</p >
+                
+                <p style="color: aliceblue; font-weight: bold;">4. Financial support policy:</p> <p style="color: lightslategrey;">Support the development of quality projects and SMEs through financial policy guidance and loan guarantees to reduce financing costs.</p >
+          </div>
+        </div>
+      </div>
     </div>
+  </div>   
+    <br><br><br>
+  
+
+
     <!-- chart -->
-    <div class="container-fluid" id="gdp">
+  <div class="container-fluid" id="gdp">
         <div class="col-md" style="text-align: center;">
             <h2 style="font-size: 55px; font-weight: bold; font-family: STHeiti;">Gross Domestic Product in Changsha</h2>
             <hr style="width: 15%; margin: auto; border: 4px solid rgb(229, 4, 105); opacity: 1;"/>
             <br><br>
-        </div>
+          </div>
         <div class="col-md">
             <div id="gdp-chart"></div>
         </div>
@@ -586,7 +592,7 @@
                 &nbsp&nbsp Changsha City is the capital of Hunan Province and has a relatively fast economic development rate. During the period of 2017-2022, Changsha's GDP continued to grow with relatively balanced development of various industries. 2022 Changsha's GDP is expected to grow by 4.8%, ranking among the top trillion cities in China; the value added of large-scale industries grew by 8.5%, ranking first in central China and among the top in the country; local general public budget revenue exceeded 120 billion RMB, showing a good trend of steady progress in economic development.
             </p>
         </div>
-</div>
+  </div>
 
 <script>
     const data = [{
