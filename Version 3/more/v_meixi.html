@@ -6,15 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
     <link rel="stylesheet" href="./Hover/css/hover.css">
-    <!-- 暂时先从网页引入 -->
     <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-     />
-     <!-- <link rel="stylesheet" href="./bootstrap/css/bootstrap.css"> -->
-     <!-- <script src="./bootstrap/js/bootstrap.bundle.js"></script> -->
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
      <script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
-     <!-- <script src="./bootstrap/js/bootstrap.min.js"></script> -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Google fonts-->
@@ -24,146 +19,30 @@
 <script>
     new WOW().init();
 </script>
-<!-- 先一股脑引一下 -->
+
 <style>
-h4:first-letter{
-    float: left;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 55px;
-    padding:10px ;
-}
-/* 渐变色 */
-.detail-section{
-  padding: 5rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.3) 100%);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  height: fit-content;
-}
-
-
-
-    #map {
-        height: 550px;
-        width: 95%;
-        margin: 0 auto;
+    h4:first-letter{
+        float: left;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 55px;
+        padding:10px ;
     }
-    .zoom-button {
-        display: inline-block;
-        padding: 5px 10px;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 3px;
-        margin: 5px;
-        }
 
+    .detail-section{
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.3) 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: fit-content;
+    }
 
     html, body {
         margin: 0;
         padding: 0;
     }
-    .hover-image-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-
-    .hover-image-container img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .hover-image-container .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
-
-    .hover-image-container:hover .overlay {
-        opacity: 1;
-    }
-
-    .image-container {
-        position: relative;
-        width: 100%;
-        padding-top: 100%;
-    }
-
-    .image-container img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 90%;
-        height: 90%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .image-container:hover img {
-        transform: scale(1.1);
-    }
-
-    .card-img-top {
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .bg-image {
-        background-image: url('resources/image/娱乐.jpg');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        height: 90vh;
-    }
-
-    .bg-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    .content-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 2rem;
-        z-index: 1;
-    }
-
-    /* .breadcrumb {
-    background-color: transparent;
-    padding: 0px;
-    display: inline-block;
-    }
-
-    .breadcrumb a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        position: relative;
-    } */
-
+    
     .breadcrumb {
         background-color: transparent;
         padding-top: 28px;
@@ -182,67 +61,13 @@ h4:first-letter{
         padding: 0 5px;
     }
 
-
     .breadcrumb a.current {
-        color: rgb(229, 4, 105); /* 更改当前页面字体颜色，这里选择了红色 */
+        color: rgb(229, 4, 105); 
     }
-
-    .mastheads {
-    position: relative;
-    width: 100%;
-    float: right;
-    height: auto;
-    min-height: 35rem;
-    padding: 15rem 0;
-    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
-    /* background: url("../assets/img/bg.png"); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    }
-    .mastheads h1, .mastheads .h1 {
-    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    letter-spacing: 0.8rem;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-            background-clip: text;
-    }
-
-    .mastheadsss {
-    position: relative;
-    width: 100%;
-    float: right;
-    height: 80%;
-    min-height: 35rem;
-    padding: 15rem 0;
-    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/bg.png"); */
-    background: url("assets/img/bg.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    }
-    .mastheadsss h1, .mastheadsss .h1 {
-    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    letter-spacing: 0.8rem;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-            background-clip: text;
-    }
-    </style>
+</style>
     
 <body class="detail-section "style="background-attachment:fixed;">
-<!-- <body style="background-attachment:fixed;background-color: blanchedalmond;"> -->
-
-            <!-- Navigation-->
-            <!-- 导航栏,直接引进来的,可以删! -->
+    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
         
@@ -256,7 +81,6 @@ h4:first-letter{
                 </div>
             </div>
         
-            <!--a class="navbar-brand" href="#page-top" style="padding-left:20%;">Welcome to CSC</a-->
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -269,55 +93,34 @@ h4:first-letter{
         </div>
     </nav>
 
-    <!-- 假的面包xie -->
-    <!-- 图片+文字流 -->
     <div class="container-fluid" >
-        <!-- <div class="container-fluid mt-3 wow animate__animated animate__flipInX" style="text-align: center; margin-bottom: 2rem;margin-top: 0rem;">
-            <h1 class=" hvr-outline-in text-white" style="background-color: black;;margin-top: 2rem;">湖南省博物馆</h1>
-        </div> -->
-            <div class="row" style="margin-top: 50px;text-align: left;padding: 10px;">
-                <div class="col-sm-7 " >
-                                <h1  style="margin: 20px;margin-bottom: 50px;font-size: 55px;font-family: 'Courier New', Courier, monospace;font-weight: 500;" class="wow animate__animated animate__flipInX hvr-underline-from-center">
-                                    
-                                    
-                                    Meixihu Art and Culture Center
-                                
-                                </h1>
-                                <h4  style="margin: 30px;" class="wow animate__animated animate__fadeInLeftBig">
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    The Meixihu Art and Culture Center is a landmark art center located in the heart of Meixihu Park in Zhuhai, Guangdong Province, China. The center is dedicated to presenting a wide range of cultural events and activities, including exhibitions of contemporary art, concerts, and theater performances.
-
-                                    The center is designed to showcase the beauty of Chinese architecture and includes a variety of innovative features. The main building is shaped like a traditional Chinese pagoda and is adorned with intricate mosaics and decorations. The center also includes a library, a children's art center, and a restaurant.
-                                    
-                                    The Meixihu Art and Culture Center has become a popular destination for locals and visitors alike, and it has won numerous awards for its innovative design and outstanding programming. The center is a testament to the growing cultural importance of art and culture in Guangdong Province and around the world.
-                                
-                                
-                                </h4>
-
-
-                </div>
-                <div class="col-sm-5 wow animate__animated animate__fadeInRightBig" >
-                    <img src="./image/梅溪湖文化艺术中心.png" style="width: 90%;" class="hvr-grow-shadow">
-                </div>
-                <div class="col-sm-12 wow animate__animated animate__bounceInUp" style="color: gray;text-align: left;margin-top: 90px;margin-left: 100px;font-size:medium;">
-                    <div class="hvr-float-shadow">
-                        <div style="font-size: 26px;color: darkblue;">Details</div>
-                        <div>
-                            PHONE:0756-87777777
-                        </div>
-                        <div>
-                            ADDRESS:Meixihu Park, Zhuhai, Guangdong Province, China
-                        </div>
-                        <div>
-                            OPEN TIME:daily from 9:00 a.m. to 6:00 p.m.
-                        </div>
+        <div class="row" style="margin-top: 50px;text-align: left;padding: 10px;">
+            <div class="col-sm-7 " >
+                <h1  style="margin: 20px;margin-bottom: 50px;font-size: 55px;font-family: 'Courier New', Courier, monospace;font-weight: 500;" class="wow animate__animated animate__flipInX hvr-underline-from-center">     
+                    Changsha Meixihu International Cultural Arts Centre
+                </h1>
+                <h4  style="margin: 30px;" class="wow animate__animated animate__fadeInLeftBig">         
+                    Designed and built by Zaha Hadid Architects, the Changsha Meixihu International Cultural Arts Centre contains a Museum of Contemporary Art (MICA), a large theatre with a capacity of 1,800 and a multi-purpose hall (Little Theatre). Using the pedestrian circulation around the site as a design reference, the building is organically connected to the neighbourhood. Visitors can experience the atmosphere of the three courtyards inside the cultural centre as well as participate in outdoor activities while enjoying the sculpture exhibition.
+                </h4>
+            </div>
+            <div class="col-sm-5 wow animate__animated animate__fadeInRightBig" >
+                <img src="../resources/image/Meixi Lake.png" style="width: 90%;" class="hvr-grow-shadow">
+            </div>
+            <div class="col-sm-12 wow animate__animated animate__bounceInUp" style="color: gray;text-align: left;margin-top: 90px;margin-left: 100px;font-size:medium;">
+                <div class="hvr-float-shadow">
+                    <div style="font-size: 26px;color: darkblue;">Details</div>
+                    <div>
+                        Tel: +86-155 7498 8822
+                    </div>
+                    <div>
+                        Address: Meixihu Road and Jieqing Road Intersection Southwest 200 Meters, Yuelu, Changsha, Hunan
+                    </div>
+                    <div>
+                        Hours: 09:00-18:00
                     </div>
                 </div>
             </div>
+        </div>
 
     </div>
 </body>
