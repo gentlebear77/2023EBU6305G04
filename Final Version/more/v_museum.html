@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="./Hover/css/hover.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- //引入的库 -->
+        <link rel="shortcut icon" type="image/x-icon" href="../img/CSCicon.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="../js/all.js" crossorigin="anonymous"></script>
+   
+   
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+</head>
+<script>
+    new WOW().init();
+</script>
+
+<style>
+    h4:first-letter{
+        float: left;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 55px;
+        padding:10px ;
+    }
+
+    .detail-section{
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.3) 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: fit-content;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .breadcrumb {
+        background-color: transparent;
+        padding-top: 28px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color:gray;
+        font-weight: bold;
+    }
+
+    .breadcrumb .divider {
+        color: grey;
+        padding: 0 5px;
+    }
+
+    .breadcrumb a.current {
+        color: rgb(229, 4, 105); 
+    }
+</style>
+    
+<body class="detail-section "style="background-attachment:fixed;">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" style="background-color: white;">
+        <div class="container px-4 px-lg-5">
+            <a href="../Home.html"><img src="img/icon.png" width="30"></a>&nbsp;
+            <div class="breadcrumb" style="display:flex;vertical-align: middle;">
+                <div class="nav-item">
+                    <a href="../Home.html">&nbsp Welcome to CSC</a>
+                    <span class="divider">></span>
+                    <a href="../Visit.html">&nbsp Visitor</a>
+                    <span class="divider">></span>
+                    <a class="current" href="#">&nbsp Learn More</a>
+                </div>
+            </div>
+        
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-right:5% ;">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" style="font-weight: bold;"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+    <div class="container-fluid" >
+        <div class="row" style="margin-top: 50px;text-align: left;padding: 10px;">
+            <div class="col-sm-7 " >
+                <h1  style="margin: 20px;margin-bottom: 50px;font-size: 55px;font-family: 'Courier New', Courier, monospace;font-weight: 500;" class="wow animate__animated animate__flipInX hvr-underline-from-center">Hunan Provincial Museum</h1>
+                <h4  style="margin: 30px;" class="wow animate__animated animate__fadeInLeftBig">
+                    The Hunan Provincial Museum was founded in the early 1950s and is located in the Kaifu district of Changsha. The museum has a rich collection of cultural relics, especially the Mawangdui Han tomb relics, Shang and Zhou bronzes, Chu relics, ceramics, paintings and calligraphy and modern relics. It is the largest comprehensive history and art museum in Hunan Province, as well as a national excellent patriotic education demonstration base and one of the 4A-level tourist attractions in Hunan Province.
+                </h4>
+            </div>
+            <div class="col-sm-5 wow animate__animated animate__fadeInRightBig" >
+                <img src="../resources/image/Hunan Provincial Museum.png" style="width: 60%;" class="hvr-grow-shadow">
+            </div>
+            <div class="col-sm-12 wow animate__animated animate__bounceInUp" style="color: gray;text-align: left;margin-top: 90px;margin-left: 2.5rem;font-size:medium;">
+                <div class="hvr-float-shadow">
+                    <div style="font-size: 26px;color: darkblue;">Details</div>
+                    <div>Tel: 0731-8451 4630</div>
+                    <div>Address: No.50, Dongfeng Road, Kaifu, Changsha, Hunan</div>
+                    <div>Hours: 09:00-17: 00</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>   
